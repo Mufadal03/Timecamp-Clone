@@ -1,8 +1,9 @@
 .topBox{
     background-color: #f3f3f3;
-    height: 400px;
+    height: fit-content;
     margin: auto;
     border: 1px solid #f3f3f3;
+    padding-bottom: 100px;
     margin-bottom: 50px;
 }
 .headBox{
@@ -94,6 +95,7 @@
 .priceDiv{
    
     height: 568px;
+    max-height: fit-content;
     width: 23%;
     padding-top: 3%;
     padding-left: 2%;
@@ -197,6 +199,7 @@
     width: 75%;
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content:space-between;
     padding-top: 40px;
@@ -252,7 +255,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 75vh;
+    height: fit-content;
     width: 65%;
     height: fit-content;
     margin: auto;
@@ -400,4 +403,149 @@
     font-size: 35px;
     font-weight: bold;
     margin-bottom: 100px;
+}
+
+@media screen and (max-width : 1040px) {
+    
+    .pricingBox_child4{
+        height: 70px;
+        width: 40% ;
+    }
+    .priceListBox{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .priceDiv{
+        width: 45%;
+        
+    }
+    .pro{
+        width: 45%;
+    }
+    .logosDiv>div{
+        
+        width: 28%;
+    }
+    .demo{
+        width: 90%;
+    }
+    .demoBtn{
+        width: 85%;
+    }
+    .demoHead{
+        font-size: 30px;
+    }
+    .reviews{
+       display: flex;
+       flex-direction: column;
+       align-items:center;
+    }
+    .reviews>div{
+          width: 95%;
+          height: fit-content;
+          margin-bottom: 5%;
+    }
+    .try{
+        flex-direction: column;
+    }
+    .tryBtn{
+        margin-top: 5%;
+        width: 35%;
+    }
+    .communities{
+        flex-direction: column;
+        
+    }
+    .communities>div{
+        width: 85%;
+    }
+}
+
+@media screen and (max-width : 730px) {
+    
+    .pricingBox_child4{
+        height: 70px;
+        width: 60% ;
+    }
+    .priceListBox{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .priceDiv{
+        width: 70%;
+        
+    }
+    .pro{
+        width: 70%;
+    }
+    .logosDiv>div{
+        
+        width: 45%;
+        margin-bottom: 30px;
+    }
+    .demo{
+        width: 90%;
+    }
+    .demoBtn{
+        width: 85%;
+    }
+    .demoHead{
+        font-size: 25px;
+    }
+    .demoHead+p{
+        font-size: 16px;
+    }
+    .reviews{
+       display: flex;
+       flex-direction: column;
+       align-items:center;
+    }
+    .reviews>div{
+          width: 95%;
+          height: fit-content;
+          margin-bottom: 5%;
+    }
+    .try{
+        width: 90%;
+        flex-direction: column;
+    }
+    .try>div{
+        font-size: 14px;
+    }
+    .tryBtn{
+        margin-top: 5%;
+        width: 65%;
+    }
+    .communities{
+        flex-direction: column;
+        
+    }
+    .commHead{
+        font-size: 20px;
+    }
+    .communities>div{
+        width: 85%;
+    }
+    .logosItem{
+        flex-direction: column;
+    }
+    .logosItem>div{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:420px) {
+    
+    .priceDiv{
+        width: 100%;
+        
+    }
+    .pro{
+        width: 100%;
+    }
+    .logosDiv>div{
+       width: 70%;
+       margin: auto;
+       margin-bottom: 30px;
+    }
 }
