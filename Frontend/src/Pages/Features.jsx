@@ -26,20 +26,24 @@ const Features = () => {
                   Track time against your projects and create reports and
                   timesheets in seconds.
                 </Text>
-                <Box pt="1rem">
-                  <Flex>
+                <Box pt="1.3rem">
+                  <Flex boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"} justifyContent="space-between"
+                  borderRadius="1.4rem">
                     <Input
                       p="0.3rem"
+                      pl="0.5rem"
                       type="text"
                       placeholder="Add your email"
                       shadow="base"
                       borderColor="white"
+                      outline="none" border="none"
                     />
                     <Button
                       bg="#25cf60"
                       color="white"
                       borderRadius="1.3rem"
                       p="0.7rem"
+                      w="-webkit-fit-content"
                     >
                       {" "}
                       Start tracking time
