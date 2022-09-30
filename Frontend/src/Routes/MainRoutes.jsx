@@ -9,6 +9,6 @@ const MainRoutes = () => {
          <Route path='/' element={<Homepage />} /> 
           <Route path='/features' element={<Feature />} />
            <Route path='/integration' element={<Integration />} />
-      <Routes>
+      </Routes>
 )}
 export default MainRoutes
