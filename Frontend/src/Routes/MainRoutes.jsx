@@ -12,6 +12,7 @@ const MainRoutes = () => {
           <Route path='/features' element={<Feature />} />
            <Route path='/integration' element={<Integration />} />
            <Route path='/price' element={<Price/>} />
+          
       </Routes>
 )}
 export default MainRoutes
