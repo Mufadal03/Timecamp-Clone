@@ -3,9 +3,10 @@
     height: 400px;
     margin: auto;
     border: 1px solid #f3f3f3;
+    margin-bottom: 50px;
 }
 .headBox{
-    /* border: 1px solid black; */
+  
     width: 80%;
     margin:auto;
     margin-top: 5%;
@@ -17,153 +18,181 @@
     margin: auto;
 }
 .subheading{
-    /* border: 1px solid black; */
+  
     font-weight: 400;
     width: 70%;
     margin: auto;
     font-size: 20px;
 }
 .subheading_part2{
-    /* border: 1px solid black; */
+  
     font-weight: 600;
     margin-top: -0.2%;
 }
 .pricingBox{
-    /* border: 1px solid black; */
+  
     margin: auto;
 }
 .pricingBox_child1{
-    /* border: 1px solid black; */
+  
     width: 20%;
     margin: auto;
     color: #25cf60;
     font-weight: 630;
     font-size: 15px;
+    margin-bottom: 40px;
 }
 .pricingBox_child2{
-    /* border: 1px solid black; */
+  
     width: fit-content;
     margin: auto;
     font-weight: 640;
     font-size: 36px;
     margin-top: -1.5%;
+    margin-bottom: 40px;
 }
 .pricingBox_child3{
-    /* border: 1px solid black; */
+ 
     width: 35%;
     margin: auto;
     color: #838383 ;
     font-size: 20px;
     margin-top: -1.5%;
+    margin-bottom: 40px;
 }
-.priceListBox{
-    /* border: 1px solid black; */
-    height: 650px;
+.pricingBox_child4{
+ 
+    width: 25%;
+    height: 50px;
+    margin: auto;
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2%;
-}
-.priceListBox>div{
-    
-    /* border: 1px solid black; */
-    height: 528px;
-    width: 17%;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.listTop{
-    /* border-bottom: 1px solid #25cf60; */
-        height: 18%;
+.pricingBox_child4>button{ 
+    width: 50%;
+    height: 100%;
+    border-radius: 30px;
+    text-align: center;
+    margin:auto;
+    color: #939393;
 }
-.listTop2{
-    /* border-bottom: 1px solid #25cf60; */
-        height: 20%;
+.priceListBox{
+    width: 75%;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 200px;
 }
-.listAbout{
-    /* border-bottom: 1px solid black;   */
-      height:10%;
-}
-.listBtn{
-    border: 1px solid #25cf60;  
-      height:9%;
-      width: 85%;
-      margin: auto;
-      border-radius: 30px;
-      background-color:  #25cf60;
-      color:white;
-      font-weight: 600;
-      vertical-align: baseline;
-}
-.listPoints{
-    /* border-bottom: 1px solid black; */
-    height:45%;
-    text-align: left;
-}
-.type{
-    color: #25cf60;
-    font-weight: 620;
-    font-size: 45px;
-    /* border: 1px solid black; */
-    margin-bottom: none;
-}
-.type1{
-    color: black;
-    font-weight: 620;
-    font-size: 45px;
-    /* border: 1px solid black; */
-    margin-bottom: none;
-}
-.type2{
-    color: black;
-    font-weight: 420;
-    font-size: 25px;
-    /* border: 1px solid black; */
-    margin-bottom: none;
-}
-.type+p{
-    /* border: 1px solid black; */
-    color: #838383 ;
-    font-size: 18px;
-    margin-top: -15%;
-}
-.type1+p{
-    /* border: 1px solid black; */
-    color: #838383 ;
-    font-size: 18px;
-    margin-top: -15%;
-}
-.type2+p{
-    /* border: 1px solid black; */
-    color: #838383 ;
-    font-size: 18px;
-    margin-top: -10%;
-}
-.listAbout>p{
-    color: #838383 ;
+
+.priceDiv{
+   
+    height: 568px;
+    width: 23%;
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .pro{
+  
+    height: 568px;
+    width: 23%;
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #25cf60;
     color: white;
 }
+.listTop{
+  
+    height: 20%;
+  
+}
+.listTop2{
+  
+    height: 20%;
+  
+}
+.type{
+    font-size: 45px;
+    color: #25cf60;
+    font-weight: 600;
+}
+.type+p{
+    color: #939393;
+    font-size: 16px;
+}
+.type1{
+    font-size: 45px;
+}
+.type2{
+    font-size: 25px;
+}
+.listAbout{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: left;
+    color: #939393;
+}
+.listAbout1{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: left;
+    color: white;
+}
+.listBtn{
+   border: 1px solid #25cf60;
+   width:100%;
+   padding-top: 5%;
+   padding-bottom: 5%;
+   border-radius: 25px;
+   background-color:#25cf60 ;
+   color: white;
+   font-weight: bold;
+   margin-bottom: 15%;
+}
 .listBtn1{
-    border: 1px solid #25cf60;  
-      height:9%;
-      width: 85%;
-      margin: auto;
-      border-radius: 30px;
-      background-color:  white;
-      color:#25cf60;
-      font-weight: 600;
-      vertical-align: baseline;
+    border: 1px solid #25cf60;
+    width:100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 25px;
+    color:#25cf60;
+    background-color:white ;
+    font-weight: bold;
+    margin-bottom: 15%;
+ }
+.listPoints{
+   
+    width: fit-content;
+    margin:auto;
+    text-align: left;
+}
+.listPoints1{
+  
+    width: fit-content;
+    margin:auto;
+    text-align: left;
+    width: 80%;
 }
 .logoshead{
-   /* border: 1px solid black; */
+   
    width: fit-content;
    margin: auto;
   
 }
 .logosDiv{
+    border-top: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
     width: 75%;
     margin: auto;
@@ -172,7 +201,6 @@
     justify-content:space-between;
     padding-top: 40px;
     padding-bottom: 40px;
-    margin-top: -26px;
    margin-bottom: 200px;
 }
 .demo{
@@ -184,17 +212,18 @@
     margin-bottom: 100px;
 }
 .demoHead{
-    /* border: 1px solid black; */
+ 
     font-weight: bolder;
     font-size: 40px;
     width: 65%;
     margin: auto;
     margin-top: 8%;
-    margin-bottom: 8%;
+    margin-bottom: 5%;
 }
 .demoHead+p{
     font-weight: 600;
     font-size: 23px;
+    margin-bottom: 3%;
 }
 .demoBtn{
     border: 1px solid #f7b801;
@@ -220,7 +249,6 @@
     margin-bottom: 100px;
 }
 .reviews{
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -231,26 +259,31 @@
     
 }
 .reviews>div{
-    width: 24%;
-    height: 75vh;
-    /* border: 1px solid black; */
+    width: 28%;
+    height: 600px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     text-align: left;
     padding-left: 3%;
     padding-right:  3%;
     padding-top: 5%;
+    padding-bottom: 5%;
 }
-.reviews>div>h3+p{
-    font-size: 20px;
-    font-weight: 400;
+.reviewshead{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8%;
 }
-.author{
-    /* border: 1px solid black; */
-    width: 60%;
-    margin-left: 50%;
+.reviewsContent{
+    font-size: 18px;
+    font-weight: 500;
 }
+.author{ 
+    width: 70%;
+    margin-left: 40%;
+} 
+
 .try{
     border: 1px solid  #f3f3f3;
     width: 75%;
@@ -262,14 +295,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
-    margin-bottom: 100px;
+    gap:10%;
+    margin-bottom: 200px;
+}
+.trybold{
+    font-weight: 700;
 }
 .try>div{
     display:flex;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid black; */
+    
     font-size: 20px;
 }
 .tryBtn{
@@ -284,7 +320,6 @@
     color: white;
 }
 .communities{
-    /* border: 1px solid black; */
     width: 75%;
     height: fit-content;
     margin: auto;
@@ -297,7 +332,6 @@
 .communities>div{
     width: 45%;
     height: fit-content;
-    /* border: 1px solid black ; */
     margin: auto;
 } 
 .commLogo{
@@ -310,7 +344,7 @@
 
 }
 .logos{
-    /* border: 1px solid black; */
+   
     height: fit-content;
     width: 80% ;
     margin-bottom: 20px;
@@ -324,7 +358,6 @@
     width: 100%;
 }
 .logosItem{
-    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -339,7 +372,7 @@
     width: 100%;
 }
 .commHead{
-    /* border: 1px solid black; */
+   
     font-size: 32px;
     font-weight: bold;
     text-align: left;
@@ -347,7 +380,7 @@
 
 }
 .commInt{
-    /* border: 1px solid black; */
+   
     font-size: 17px;
     font-weight: 500;
     text-align: left;
@@ -356,13 +389,15 @@
 .commLogo2{
     padding-top: 30px;
     padding-bottom: 30px;
-    /* border: 1px solid black; */
+   
 }
 .faq{
-    width: 55%;
+    width: 65%;
     margin: auto;
+    margin-bottom: 300px;
 }
 .faqHead{
-    font-size: 25px;
+    font-size: 35px;
     font-weight: bold;
+    margin-bottom: 100px;
 }
