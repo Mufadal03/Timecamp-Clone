@@ -31,6 +31,7 @@ export default function Footer() {
             <Link href={"#"}>Customer Stories</Link>
             <Link href={"#"}>Self-hosting</Link>
           </Stack>
+          
           <Stack align={"flex-start"}>
             <Heading size="md">Support</Heading>
             <Link href={"#"}>Support</Link>
