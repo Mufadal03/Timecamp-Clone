@@ -1,11 +1,22 @@
-import { Box, Grid, GridItem, Image, Input, Text } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Image, Input, Text,Flex,Container} from '@chakra-ui/react';
 import React from 'react';
-// import FooterFaq from './footer';
+import Footer from '../Components/Footer';
+import FrequentQues from '../Components/FrequentQues';
+import styles from"./allintegration.module.css"
 
+// import FooterFaq from './footer';
+const breakpoints = {
+  sm: '320px',
+  md: '768px',
+  lg: '960px',
+  xl: '1200px',
+  '2xl': '1536px',
+}
 const Integration = () => {
+ 
   return (
-    <Box>
-      <Box width={'40%'} margin={'auto'} mar>
+    <Flex direction={"column"} >
+      <Box  width={'40%'} margin={'auto'} mar>
         <Box display={'flex'}>
           <Box>
             <Image src="https://cdn-m.timecamp.com/img/greenbranding/integrations/trello.png" />
@@ -40,19 +51,19 @@ const Integration = () => {
           </Box>
         </Box>
       </Box>
-      <Box margin={'auto'} marginTop={'50px'}>
-        <Box margin={'auto'} width={'30%'}>
+      <Box margin={'auto'} marginTop={'150px'}>
+        <Box margin={'auto'} width={'50%'}>
           <Text>
             Trusted by 18,000 teams from all over the world (and still growing!)
           </Text>
         </Box>
         <Box
-          width={'50%'}
+          width={'80%'}
           margin={'auto'}
           marginBottom={'40px'}
           marginTop={'30px'}
         >
-          <Grid templateColumns="repeat(6, 1fr)">
+          <Grid templateColumns="repeat(6, 1fr)" gap={"10"}>
             <GridItem>
               <Image src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/stars.svg" />
 
@@ -80,14 +91,14 @@ const Integration = () => {
         <Box width={'50%'} margin={'auto'}>
           <hr />
         </Box>
-        <Box margin={'auto'} width={'25%'}>
+        <Box margin={'auto'} width={'50%'}>
           <Text>
             Want to track time in your team ?{' '}
             <span style={{ color: 'green' }}>Book a Demo</span>
           </Text>
         </Box>
       </Box>
-      <Box height={'800px'} backgroundColor={'rgb(243,243,243)'}>
+      <Box height={'auto'} backgroundColor={'rgb(243,243,243)'}>
         <Box width={'50%'} margin={'auto'} marginTop={'60px'}>
           <Box width={'30%'} margin={'auto'}>
             <Text fontWeight={'bold'} fontSize={'30px'}>
@@ -160,7 +171,32 @@ const Integration = () => {
         </Box>
       </Box>
  {/* <FooterFaq/> */}
-    </Box>
+ <Container maxW={"50%"} mb={"2  00px"}>
+        <Box justifyContent={"center"} margin={"auto"}>
+          <Text
+            fontSize="30px"
+            textAlign={"center"}
+            fontWeight={"700"}
+            mt={"200px"}
+            mb={"80px"}
+          >
+            Benefits include
+          </Text>
+        </Box>
+        <FrequentQues />
+      </Container>
+ {/* <Box margin={"auto"}  w={[500,900,1500]}>
+   <div className={styles.bottom}>
+    <h1>One simple tool to measure everything your business needs.</h1>
+    <p>Remember, you can't improve something if you're not measuring it! If you're tired of the constant guessing, give TimeCamp a go!</p>
+   <button className={styles.btn2} style={{backgroundColor:'rgb(247,184,1)',}}>Try TimeCmp for free </button>
+   <button className={styles.btn3} style={{marginLeft:"30px"}}>Contact Sale</button>
+   </div>
+   </Box> */}
+   <Footer/>
+
+    </Flex>
+    
   );
 };
 
