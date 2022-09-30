@@ -23,11 +23,11 @@ RegisterController.post("/login", async(req, res) => {
     else {
         const hashedPassword = user.password
         bcrypt.compare(password, hashedPassword, (err, result) => {
-        if (err) res.send({ "msg": "Something went wrong" })
-        else {
+        if(result) {
             const token = jwt.sign({ userId: user.id, email: user.email }, process.env.SECRET_KEY)
             res.send({"msg":"Login Successfull",token})
-        }
+            }
+            else{res.send({"msg":"Please Login"})}
 
     })
     }
