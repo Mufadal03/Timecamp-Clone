@@ -27,7 +27,7 @@ const Features = () => {
                   timesheets in seconds.
                 </Text>
                 <Box pt="1rem">
-                  <Flex>
+                  <Flex >
                     <Input
                       p="0.3rem"
                       type="text"
@@ -40,8 +40,9 @@ const Features = () => {
                       color="white"
                       borderRadius="1.3rem"
                       p="0.7rem"
+                      // w="-webkit-fit-content"
                     >
-                      {" "}
+                      {/* {" "} */}
                       Start tracking time
                     </Button>
                   </Flex>

@@ -1,6 +1,6 @@
 import { Box, Grid, GridItem, Image, Input, Text } from '@chakra-ui/react';
 import React from 'react';
-import FooterFaq from './footer';
+// import FooterFaq from './footer';
 
 const Integration = () => {
   return (
