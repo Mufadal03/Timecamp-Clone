@@ -140,26 +140,29 @@ const Integration = () => {
           width={"100%"}
           marginBottom={"40px"}
           marginTop={"30px"}
-          border={"1px solid red"}
         >
           <Flex
             m={"auto"}
             mr={"10px"}
             ml={"10px"}
             justifyContent={"space-between"}
+        
             direction={["column", "row", "row", "row"]}
           >
             <Image
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/capterra.svg"
             />
             <Image
+              w={["25%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/logos/dsv.png"
             />
             <Image
+              w={["25%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/logos/usp.png"
@@ -171,17 +174,19 @@ const Integration = () => {
             direction={["column", "row", "row", "row"]}
           >
             <Image
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/logos/saatchi.png"
             />
             <Image
-          
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/logos/blitzmetrics.png"
             />
             <Image
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/g2crowd.svg"
@@ -228,7 +233,12 @@ const Integration = () => {
             w={["100%", "100%", "50%", "50%"]}
             direction={"column"}
           >
-            <Text fontWeight={"600"} mt={"20px"} mb={"20px"} textAlign={"start"}>
+            <Text
+              fontWeight={"600"}
+              mt={"20px"}
+              mb={"20px"}
+              textAlign={"start"}
+            >
               Plan, work and track in one app
             </Text>
             <Text fontWeight={"500"} textAlign={"justify"}>
@@ -294,6 +304,9 @@ const Integration = () => {
               redundant activities.
             </Text>
           </Flex>
+        </Flex>
+        <Flex m={"auto"} w={["40%", "50%", "55%", "50%"]}>
+          <Image src="https://cdn-m.timecamp.com/img/landing-page/ppc_integrations/trello.png" />
         </Flex>
       </Box>
       {/* <FooterFaq/> */}
