@@ -27,7 +27,6 @@ ProjectController.patch("/:id",async (req, res) => {
     const { id } = req.params
     const { User_id } = req.body
     const ans = await ProjectModel.updateOne({ _id: id, User_id }, { $set: req.body })
-    console.log(ans)
     if(ans.modifiedCount==0)return res.send({"msg":"Something went wrong"})
     else return res.send({msg:"Project updated"})
 })
