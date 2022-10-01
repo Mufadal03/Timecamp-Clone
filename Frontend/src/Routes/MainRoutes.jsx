@@ -7,6 +7,7 @@ import Homepage from '../Pages/Home/Homepage';
 import Feature  from "../Pages/Features";
 import Integration from '../Components/Integration/Integration'
 import { Price } from '../Pages/Pricing/Price';
+import Addprojects from '../Pages/Project/Addprojects';
 
 const MainRoutes = () => {
   return (
@@ -18,7 +19,7 @@ const MainRoutes = () => {
           <Route path='/features' element={<Feature />} />
            <Route path='/integration' element={<Integration />} />
            <Route path='/price' element={<Price/>} />
-          
+          <Route path="/projects" element={<Addprojects />} />
       </Routes>
 )}
 export default MainRoutes

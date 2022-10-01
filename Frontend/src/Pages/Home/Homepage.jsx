@@ -9,6 +9,7 @@ import LandingFooter from '../../Components/Homepage/LandingFooter'
 import Pricing from '../../Components/Homepage/Pricing'
 import ProductTour from '../../Components/Homepage/ProductTour'
 import Reviews from '../../Components/Homepage/Reviews'
+import WithSubnavigation from '../../Components/Mainnav'
 import TempNav from '../temp/TempNav'
 
 
@@ -16,6 +17,7 @@ const Homepage = () => {
   return (
     <Box h="1400vh">
       {/* <TempNav /> */}
+      <WithSubnavigation />
       <Landing />
       <LandingFooter />
       <GetDemo />

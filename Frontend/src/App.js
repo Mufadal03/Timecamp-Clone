@@ -4,7 +4,6 @@ import MainRoutes from "./Routes/MainRoutes";
 import ProjectcontextProvider from "./Context/ProjectContext";
 import './App.css';
 import Login from './Components/Login';
-import MainRoutes from './Routes/MainRoutes';
 
 function App() {
   return (
