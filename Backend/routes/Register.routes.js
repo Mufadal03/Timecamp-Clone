@@ -11,7 +11,7 @@ RegisterController.post("/signup",AlreadyRegistered,EmailValidator,PasswordValid
     const { email, password } = req.body
     bcrypt.hash(password, 6).then(async(hash) => {
         const newUser = SignupModel({ email, password: hash })
-        // await newUser.save()
+        await newUser.save()
        res.send({"msg":"Signup Successfull"})
     }).catch(() => {
         res.send({"msg":"Something went wrong please try again later"})
