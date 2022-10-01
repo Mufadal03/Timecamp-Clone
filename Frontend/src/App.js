@@ -1,18 +1,18 @@
 import "./App.css";
-import Addprojects from "./Pages/Project/Addprojects";
+// import Addprojects from "./Pages/Project/Addprojects";
 import MainRoutes from "./Routes/MainRoutes";
-import ProjectcontextProvider from "./Context/ProjectContext";
+// import ProjectcontextProvider from "./Context/ProjectContext";
 import './App.css';
-import Login from './Components/Login';
-import MainRoutes from './Routes/MainRoutes';
+// import Login from './Components/Login';
+
 
 function App() {
   return (
     <div className="App">
       <MainRoutes />
-      <ProjectcontextProvider>
+      {/* <ProjectcontextProvider>
         <Addprojects />
-      </ProjectcontextProvider>
+      </ProjectcontextProvider> */}
     </div>
   );
 }

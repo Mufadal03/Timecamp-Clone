@@ -1,0 +1,92 @@
+.mainDiv{
+    width: 100%;
+    height: 130px;
+}
+.topBar{
+    border-bottom: 1px solid black ;
+    height: 50%;
+    width: 100%;
+    background-color:#f8f8f8 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.dayLeft{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    gap: 2px;
+    width: 18%;
+}
+.dayLeft>img{
+    height: 80%;
+}
+.days{
+    font-weight: bold;
+}
+
+.Btn{
+    border: 1px solid #f7b801;
+    color:white;
+    background-color: #f7b801;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0.7%;
+    padding-bottom: 0.7%;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.Btn1{
+    border: 1px solid #f8f8f8 ;
+    color:black;
+    background-color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0.7%;
+    padding-bottom: 0.7%;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.bottomBar{
+    border-bottom: 1px solid black ;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title{
+    font-size: 23px;
+    font-weight: 500;
+    margin-left: 2%;
+}
+.userSection{
+   
+    width: 15%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5%;
+    margin-right: 2%;
+}
+.userSection>button{
+ 
+    width: 20%;
+    height: 45%;
+
+}
+
+.userSection>button>img{
+    height: 100%;
+    margin: auto;
+}
+
+.userSection>button:hover{
+    
+    background-color:#f8f8f8  ;
+    transform: scale(1.1);
+}
