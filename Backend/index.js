@@ -17,7 +17,7 @@ app.use("/user",RegisterController)
 
 app.use("/projects",Authentication,ProjectController)
 
-app.use("/tags",TagController)
+app.use("/tags",Authentication,TagController)
 
 
 
