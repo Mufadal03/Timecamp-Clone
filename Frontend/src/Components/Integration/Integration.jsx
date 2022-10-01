@@ -7,94 +7,182 @@ import {
   Text,
   Flex,
   Container,
+  Button,
+  InputGroup,
+  InputRightElement,
+  InputRightAddon,
+  Highlight,
+  Show,
+  Hide,
 } from "@chakra-ui/react";
 import React from "react";
 import styles from "./allintegration.module.css";
 import FrequentQues from "./FrequentQues";
 import Footer from "./Footer";
 import EasySteps from "./EasySteps";
-const breakpoints = {
-  sm: "320px",
-  md: "768px",
-  lg: "960px",
-  xl: "1200px",
-  "2xl": "1536px",
-};
+
 const Integration = () => {
   return (
-    <Flex direction={"column"}>
-      <Flex width={{ base: '100%', sm: '50%', md: '25%' }}  direction={"column"} margin={"auto"}>
-        <Box display={"flex"}>
-          <Box >
-            <Image src="https://cdn-m.timecamp.com/img/greenbranding/integrations/trello.png" />
-          </Box>
-          <Box margin={"20px 0 0 20px"}>
-            <Text textAlign={"start"}>Trello time tracking</Text>
-            <Text>
-              Tracking time on all of your chosen Trello cards and boards
-              without switching apps? Yes!
-            </Text>
-          </Box>
-        </Box>
-        <Box display={"flex"}>
-          <Box width={"130px"}></Box>
-          <Input marginLeft={"20px"} placeholder="Enter email" />
-        </Box>
-        <Box display={"flex"}>
-          <Box width={"130px"}></Box>
-          <Box display={"flex"}>
-            <Text marginTop={"10px"} marginLeft={"20px"}>
+    <Flex direction={"column"} mt="10em" w="100%">
+      {/* Image */}
+      <Flex
+        justifyContent={"center"}
+        direction={["column", "column", "row", "row"]}
+        w="50%"
+        m="auto"
+      >
+        <Flex>
+          <Image
+            display={"flex"}
+            m="auto"
+            src="https://cdn-m.timecamp.com/img/greenbranding/integrations/trello.png"
+            w="10em"
+          />
+        </Flex>
+        <Flex direction={"column"} ml="10">
+          <Text
+            mb={"5px"}
+            textAlign={["center", "center", "start", "start"]}
+            fontWeight="700"
+            fontSize={"2xl"}
+            fontFamily="sans-serif"
+          >
+            Trello time tracking
+          </Text>
+          <Text
+            mb={"5px"}
+            textAlign={["center", "center", "start", "start"]}
+            fontWeight="500"
+            fontSize={"xl"}
+          >
+            Tracking time on all of your chosen Trello cards and boards without
+            switching apps? Yes!
+          </Text>
+          <InputGroup size="sm" mt="10">
+            <Input
+              placeholder="Add your email"
+              focusBorderColor="undefined"
+              borderRightRadius={"none"}
+              boxShadow={"rgba(149, 157, 165, 0.2) 0px 8px 24px;"}
+              borderRadius={"3xl"}
+              p="5"
+              borderRight={"0px solid white"}
+            />
+            <Hide below="600px">
+              <InputRightAddon
+                ml="-1em"
+                borderRadius={"3em"}
+                p="5"
+                borderLeftRadius="3em"
+                children="Start tracking time"
+                color="white"
+                fontWeight={"500"}
+                bgColor={"#25CF60"}
+                fontSize="md"
+              />
+            </Hide>
+          </InputGroup>
+          <Flex mt="10" direction={["column", "column", "row", "row"]}>
+            <Show breakpoint="(max-width: 600px)">
+              <Button
+                borderRadius={"3em"}
+                p="5"
+                borderLeftRadius="3em"
+                children="Start tracking time"
+                color="white"
+                fontWeight={"500"}
+                bgColor={"#25CF60"}
+                fontSize="md"
+              >
+                Start tracking time
+              </Button>
+            </Show>
+
+            <Text mt="3" fontSize="sm" fontFamily="sans-serif" color={"gray"}>
               Or sign up with:
             </Text>
             <Image
-              margin={"0"}
+              display={"flex"}
+              m="auto"
               src="https://cdn-m.timecamp.com/img/logos/google.svg"
+              w="12"
+              mr={["undefined", "undefined", "3", "3"]}
             />
-            <Text fontSize={"15px"} marginTop={"10px"}>
+            <Text mt="3" fontSize="sm" fontFamily="sans-serif" color={"gray"}>
               By signing up you agree to our{" "}
-              <span style={{ color: "green" }}> Terms and Conditions </span>and
-              <span style={{ color: "green" }}> Privacy Policy. </span>
+              <Highlight
+                query="Terms and Conditions"
+                styles={{ py: "1", fontWeight: "normal", color: "#25CF60" }}
+              >
+                Terms and Conditions
+              </Highlight>{" "}
+              and{" "}
+              <Highlight
+                query="Privacy Policy."
+                styles={{ py: "1", fontWeight: "normal", color: "#25CF60" }}
+              >
+                Privacy Policy.
+              </Highlight>
             </Text>
-          </Box>
-        </Box>
+          </Flex>
+        </Flex>
       </Flex>
       <Box margin={"auto"} marginTop={"150px"}>
-        <Box margin={"auto"} width={"50%"}>
+        <Box margin={"auto"}>
           <Text>
             Trusted by 18,000 teams from all over the world (and still growing!)
           </Text>
         </Box>
-        <Box
-          width={"80%"}
-          margin={"auto"}
+        <Flex
+          direction={["column", "column", "column", "row"]}
+          width={"100%"}
+          m={"auto"}
           marginBottom={"40px"}
           marginTop={"30px"}
+          border={"1px solid red"}
         >
-          <Grid templateColumns="repeat(6, 1fr)" gap={"10"}>
-            <GridItem>
-              <Image src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/stars.svg" />
-
-              <Image src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/capterra.svg" />
-            </GridItem>
-            <GridItem>
-              <Image src="https://cdn-m.timecamp.com/img/logos/dsv.png" />
-            </GridItem>{" "}
-            <GridItem>
-              <Image src="https://cdn-m.timecamp.com/img/logos/usp.png" />
-            </GridItem>{" "}
-            <GridItem>
-              <Image src="https://cdn-m.timecamp.com/img/logos/saatchi.png" />
-            </GridItem>{" "}
-            <GridItem>
-              <Image src="https://cdn-m.timecamp.com/img/logos/blitzmetrics.png" />
-            </GridItem>{" "}
-            <GridItem>
-              <Image src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/stars.svg" />
-
-              <Image src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/g2crowd.svg" />
-            </GridItem>
-          </Grid>
-        </Box>
+          <Flex
+            mr={"10px"}
+            ml={"10px"}
+            direction={["column", "row", "row", "row"]}
+          >
+            <Image
+              mr={"10px"}
+              ml={"10px"}
+              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/capterra.svg"
+            />
+            <Image
+              mr={"10px"}
+              ml={"10px"}
+              src="https://cdn-m.timecamp.com/img/logos/dsv.png"
+            />
+            <Image
+              mr={"10px"}
+              ml={"10px"}
+              src="https://cdn-m.timecamp.com/img/logos/dsv.png"
+            />
+          </Flex>
+          <Flex
+            marginLeft={"10px"}
+            direction={["column", "row", "row", "row"]}
+          >
+            <Image
+              mr={"10px"}
+              ml={"10px"}
+              src="https://cdn-m.timecamp.com/img/logos/saatchi.png"
+            />
+            <Image
+              mr={"10px"}
+              ml={"10px"}
+              src="https://cdn-m.timecamp.com/img/logos/blitzmetrics.png"
+            />
+            <Image
+              mr={"10px"}
+              ml={"10px"}
+              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/g2crowd.svg"
+            />
+          </Flex>
+        </Flex>
         <Box width={"50%"} margin={"auto"}>
           <hr />
         </Box>
@@ -112,13 +200,18 @@ const Integration = () => {
               How it works
             </Text>
           </Box>
-          <Text  fontSize={{ base: '17px', md: '20px', lg: '25px' }} fontWeight={"500"} margin={"auto"} width={"80%"}>
+          <Text
+            fontSize={{ base: "17px", md: "20px", lg: "25px" }}
+            fontWeight={"500"}
+            margin={"auto"}
+            width={"80%"}
+          >
             The TimeCamp Trello Power-Up allows you to track time without the
             need to leave Trello. Plan, work and track time in just one app.
             Ideal for Trello users.
           </Text>
         </Box>
-        <Box 
+        <Box
           margin={"auto"}
           display={"flex"}
           gap={"10"}
@@ -130,7 +223,7 @@ const Integration = () => {
             <Text margin={"20px 0 20px 0"}>
               Plan, work and track in one app
             </Text>
-            <Text >
+            <Text>
               No need to switch between two or more apps. Now, with our TimeCamp
               Trello Power-Up you're able to take your Trello experience to the
               next level. Add a time tracking button to your Trello cards and

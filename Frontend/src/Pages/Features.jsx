@@ -103,8 +103,8 @@ const Features = () => {
           w="70%"
           m="auto"
         >
-          <img
-            src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/usp-logo-white.png"
+          <Image
+            src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/capterra.svg"
             alt="a"
           />
           <img
