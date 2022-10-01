@@ -1,0 +1,39 @@
+export const platform = [
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/slack.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/asana.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/trello.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/ical.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/podio.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/quickbooks.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/jira.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/todoist.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/outlookcalendar.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/googlecalendar.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/smartsheet.png"
+    },
+    {
+        URL:"https://cdn-m.timecamp.com/img/greenbranding/integrations/xero.png"
+    },
+
+]
