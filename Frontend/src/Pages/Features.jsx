@@ -26,23 +26,27 @@ const Features = () => {
                   Track time against your projects and create reports and
                   timesheets in seconds.
                 </Text>
-                <Box pt="1rem">
-                  <Flex >
+                <Box pt="1.3rem" >
+                  <Flex boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"} justifyContent="space-between"
+                  borderRadius="1.4rem">
                     <Input
                       p="0.3rem"
+                      pl="0.5rem"
                       type="text"
                       placeholder="Add your email"
-                      shadow="base"
-                      borderColor="white"
+                      outline ="2px solid white"
+                      style={{border: 'none'}}
+                      
                     />
                     <Button
                       bg="#25cf60"
                       color="white"
                       borderRadius="1.3rem"
-                      p="0.7rem"
-                      // w="-webkit-fit-content"
+                      _hover={{ backgroundColor: "#25cf60" }}
+                      p="0rem 2rem 0rem 2rem"
+                      w="-webkit-fit-content"
                     >
-                      {/* {" "} */}
+                      {" "}
                       Start tracking time
                     </Button>
                   </Flex>
@@ -103,8 +107,8 @@ const Features = () => {
           w="70%"
           m="auto"
         >
-          <Image
-            src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/capterra.svg"
+          <img
+            src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/usp-logo-white.png"
             alt="a"
           />
           <img
