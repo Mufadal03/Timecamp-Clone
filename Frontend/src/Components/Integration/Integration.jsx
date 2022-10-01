@@ -134,49 +134,59 @@ const Integration = () => {
           </Text>
         </Box>
         <Flex
-          direction={["column", "column", "column", "row"]}
-          width={"100%"}
           m={"auto"}
+          direction={["column", "column", "row", "row"]}
+          // direction={"column"}
+          width={"100%"}
           marginBottom={"40px"}
           marginTop={"30px"}
-          border={"1px solid red"}
         >
           <Flex
+            m={"auto"}
             mr={"10px"}
             ml={"10px"}
+            justifyContent={"space-between"}
+        
             direction={["column", "row", "row", "row"]}
           >
             <Image
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/capterra.svg"
             />
             <Image
+              w={["25%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/logos/dsv.png"
             />
             <Image
+              w={["25%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
-              src="https://cdn-m.timecamp.com/img/logos/dsv.png"
+              src="https://cdn-m.timecamp.com/img/logos/usp.png"
             />
           </Flex>
           <Flex
+            justifyContent={"space-between"}
             marginLeft={"10px"}
             direction={["column", "row", "row", "row"]}
           >
             <Image
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/logos/saatchi.png"
             />
             <Image
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/logos/blitzmetrics.png"
             />
             <Image
+              w={["30%", "auto", , "auto", , "auto"]}
               mr={"10px"}
               ml={"10px"}
               src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/g2crowd.svg"
@@ -211,64 +221,93 @@ const Integration = () => {
             Ideal for Trello users.
           </Text>
         </Box>
-        <Box
-          margin={"auto"}
-          display={"flex"}
+        <Flex
           gap={"10"}
+          m={"auto"}
           width={"50%"}
-          textAlign={"justify"}
-          fontWeight={"500"}
+          direction={["column", "column", "row", "row"]}
         >
-          <Box width={"50%"}>
-            <Text margin={"20px 0 20px 0"}>
+          <Flex
+            mt={"20px"}
+            mb={"20px"}
+            w={["100%", "100%", "50%", "50%"]}
+            direction={"column"}
+          >
+            <Text
+              fontWeight={"600"}
+              mt={"20px"}
+              mb={"20px"}
+              textAlign={"start"}
+            >
               Plan, work and track in one app
             </Text>
-            <Text>
+            <Text fontWeight={"500"} textAlign={"justify"}>
               No need to switch between two or more apps. Now, with our TimeCamp
               Trello Power-Up you're able to take your Trello experience to the
               next level. Add a time tracking button to your Trello cards and
               analyze time reports for every task. If you forget to start the
               timer, don't worry. Just add time manually or edit time reports.
             </Text>
-          </Box>
-          <Box width={"50%"}>
-            <Text margin={"20px 0 20px 0"}>
+          </Flex>
+          <Flex
+            mt={"20px"}
+            mb={"20px"}
+            w={["100%", "100%", "50%", "50%"]}
+            direction={"column"}
+          >
+            <Text fontWeight={"600"} mt={"20px"} mb={"20px"}>
               Measure time spent on your chosen Trello boards
             </Text>
-            <Text>
-              Select the boards that you want to integrate with TimeCamp. You're
-              in charge! Your project management and productivity will improve
-              with the time tracker that helps identify bottlenecks and
-              redundant activities.
+            <Text fontWeight={"500"} textAlign={"justify"}>
+              Discover how the Trello extension will take your task management
+              experience to the next level. A time tracking integration that
+              takes minimum time to set up in Trello. See for yourself!
             </Text>
-          </Box>
-        </Box>
-        <Box
-          margin={"auto"}
-          width={"50%"}
-          display={"flex"}
+          </Flex>
+        </Flex>
+
+        <Flex
           gap={"10"}
-          textAlign={"justify"}
-          fontWeight={"500"}
+          m={"auto"}
+          width={"50%"}
+          direction={["column", "column", "row", "row"]}
         >
-          <Box>
-            <Text margin={"20px 0 20px 0"}>Automatic time tracking </Text>
-            <Text>
+          <Flex
+            mt={"20px"}
+            mb={"20px"}
+            w={["100%", "100%", "50%", "50%"]}
+            direction={"column"}
+          >
+            <Text fontWeight={"600"} mt={"20px"} mb={"20px"}>
+              Automatic time tracking
+            </Text>
+            <Text fontWeight={"500"} textAlign={"justify"}>
               Whatever you're working on in Trello, TimeCamp will automatically
               assign the right projects, categories and track time to them.
               TimeCamp integrates with Trello seamlessly, so you can focus on
               your work.
             </Text>
-          </Box>
-          <Box>
-            <Text margin={"20px 0 20px 0"}>Easy and fast</Text>
-            <Text>
-              Discover how the Trello extension will take your task management
-              experience to the next level. A time tracking integration that
-              takes minimum time to set up in Trello. See for yourself!
+          </Flex>
+          <Flex
+            mt={"20px"}
+            mb={"20px"}
+            w={["100%", "100%", "50%", "50%"]}
+            direction={"column"}
+          >
+            <Text fontWeight={"600"} mt={"20px"} mb={"20px"}>
+              Easy and fast
             </Text>
-          </Box>
-        </Box>
+            <Text fontWeight={"500"} textAlign={"justify"}>
+              Select the boards that you want to integrate with TimeCamp. You're
+              in charge! Your project management and productivity will improve
+              with the time tracker that helps identify bottlenecks and
+              redundant activities.
+            </Text>
+          </Flex>
+        </Flex>
+        <Flex m={"auto"} w={["40%", "50%", "55%", "50%"]}>
+          <Image src="https://cdn-m.timecamp.com/img/landing-page/ppc_integrations/trello.png" />
+        </Flex>
       </Box>
       {/* <FooterFaq/> */}
       <EasySteps />
