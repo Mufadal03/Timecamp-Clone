@@ -1,0 +1,485 @@
+.parentdiv {
+    display: flex;
+    margin-top: 3rem;
+  }
+  
+  .companies{
+    margin-top:40px;
+    display:flex;
+    align-items: center;
+    gap:25px;
+  }
+  
+  /* Left Section */
+  
+  .leftbox{
+    box-sizing: border-box;
+    padding-left: 60px;
+    width:51%
+  }
+  
+  .leftheading{
+    font-size: 48px;
+    width:75%;
+    font-weight: 700;
+    margin-top: 50px;
+    line-height: 60px;
+  }
+  
+  .subheading{
+    font-size: 24px;
+    width:60%;
+    font-weight: 700;
+    margin-top: 10px;
+    color:#767676
+  }
+  
+  .addchromebtn{
+    margin-top: 15px;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 15px 10px 15px;
+    width:55%
+  }
+  
+  .chromelogo{
+    font-weight: lighter;
+    font-size: 30px;
+  }
+  
+  .btntext{
+    margin-left: 10px;
+    font-weight: lighter;
+    font-size: 14px;
+  }
+  
+  /* Left Section ended */
+  
+  .logindiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 42%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+  
+  .loginheading {
+    font-size: 24px;
+    font-weight: 700;
+    padding-top: 40px;
+  }
+  
+  .googlebtn{
+    width:75%;
+    margin:auto;
+    height:40px;
+    border:1px solid silver;
+    border-radius: 8px;
+    display:flex;
+    justify-content: center;
+   align-items: center;
+   gap:30px;
+   margin-top: 50px;
+   cursor: pointer;
+  }
+  
+  .loginbtn{
+    margin:auto;
+    margin-top: 20px;
+    border-radius: 30px;
+    padding:15px 10px 15px 10px;
+    font-size: 15px;
+    color:white;
+    font-weight: lighter;
+    width:25%;
+    
+  }
+  
+  
+  
+  @media (min-width: 375px) and (max-width: 667px) {
+    .parentdiv {
+      display:inline;
+    }
+  
+    .leftbox{
+    box-sizing: border-box;
+    padding-left: 25px;
+    width:100%
+  }
+  
+  .leftheading{
+    font-size: 40px;
+    width:90%;
+    font-weight: 700;
+    margin-top: 50px;
+    line-height: 45px;
+  }
+  
+  .subheading{
+    font-size: 24px;
+    width:80%;
+    font-weight: 700;
+    margin-top: 20px;
+    color:#767676
+  }
+  
+  .addchromebtn{
+    margin-top: 15px;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 15px 10px 15px;
+    width:85%
+  }
+  
+  .logindiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 98%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: 105px;
+  }
+  
+  .companies{
+    margin:auto;
+    margin-top:90px;
+    width:75%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    gap:40px;
+  }
+  
+  .maindiv{
+    padding-bottom: 80px;
+  }
+  }
+  
+  @media (min-width: 360px) and (max-width: 740px) {
+    .parentdiv {
+      display:inline;
+    }
+  
+    .leftbox{
+    box-sizing: border-box;
+    padding-left: 25px;
+    width:90%
+  }
+  
+  .leftheading{
+    font-size: 40px;
+    width:90%;
+    font-weight: 700;
+    margin-top: 50px;
+    line-height: 45px;
+  }
+  
+  .subheading{
+    font-size: 24px;
+    width:80%;
+    font-weight: 700;
+    margin-top: 20px;
+    color:#767676
+  }
+  
+  .addchromebtn{
+    margin-top: 15px;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 15px 10px 15px;
+    width:85%
+  }
+  
+  .logindiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 98%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: 105px;
+  }
+  
+  .companies{
+    margin:auto;
+    margin-top:90px;
+    width:75%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    gap:40px;
+  }
+  
+  .maindiv{
+    padding-bottom: 80px;
+  }
+  }
+  
+  @media (min-width: 820px) and (max-width: 1180px) {
+    .parentdiv {
+      display:inline;
+    }
+  
+    .leftbox{
+    box-sizing: border-box;
+    padding-left: 60px;
+    width:90%
+  }
+  
+  .leftheading{
+    font-size: 48px;
+    width:90%;
+    font-weight: 700;
+    margin-top: 50px;
+    line-height: 55px;
+  }
+  
+  .subheading{
+    font-size: 24px;
+    width:100%;
+    font-weight: 700;
+    margin-top: 20px;
+    color:#767676
+  }
+  
+  .addchromebtn{
+    margin-top: 20px;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 15px 10px 15px;
+    width:45%
+  }
+  
+  .logindiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 80%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: 130px;
+  }
+  
+  .companies{
+    margin:auto;
+    margin-top:70px;
+    width:75%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    gap:40px;
+  }
+  
+  .maindiv{
+    padding-bottom: 80px;
+  }
+  }
+  
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .parentdiv {
+      display:inline;
+    }
+  
+    .leftbox{
+    box-sizing: border-box;
+    padding-left: 60px;
+    width:90%
+  }
+  
+  .leftheading{
+    font-size: 48px;
+    width:90%;
+    font-weight: 700;
+    margin-top: 50px;
+    line-height: 55px;
+  }
+  
+  .subheading{
+    font-size: 24px;
+    width:100%;
+    font-weight: 700;
+    margin-top: 20px;
+    color:#767676
+  }
+  
+  .addchromebtn{
+    margin-top: 20px;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 15px 10px 15px;
+    width:50%
+  }
+  
+  .logindiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 80%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: 130px;
+  }
+  
+  .companies{
+    margin:auto;
+    margin-top:70px;
+    width:75%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    gap:40px;
+  }
+  
+  .maindiv{
+    padding-bottom: 80px;
+  }
+  }
+  
+  @media (min-width: 540px) and (max-width: 720px) {
+    .parentdiv {
+      display:inline;
+    }
+  
+    .leftbox{
+    box-sizing: border-box;
+    padding-left: 30px;
+    width:90%
+  }
+  
+  .leftheading{
+    font-size: 40px;
+    width:90%;
+    font-weight: 700;
+    margin-top: 50px;
+    line-height: 55px;
+  }
+  
+  .subheading{
+    font-size: 24px;
+    width:100%;
+    font-weight: 700;
+    margin-top: 20px;
+    color:#767676
+  }
+  
+  .addchromebtn{
+    margin-top: 20px;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 15px 10px 15px;
+    width:70%
+  }
+  
+  .logindiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 97%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: 130px;
+  }
+  
+  .companies{
+    margin:auto;
+    margin-top:70px;
+    width:75%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    gap:40px;
+  }
+  
+  .maindiv{
+    padding-bottom: 80px;
+  }
+  }
+  
+  @media (min-width: 280px) and (max-width: 653px) {
+    .parentdiv {
+      display:inline;
+    }
+  
+    .leftbox{
+    box-sizing: border-box;
+    padding-left: 25px;
+    width:90%
+  }
+  
+  .leftheading{
+    font-size: 40px;
+    width:90%;
+    font-weight: 700;
+    margin-top: 50px;
+    line-height: 45px;
+  }
+  
+  .subheading{
+    font-size: 24px;
+    width:80%;
+    font-weight: 700;
+    margin-top: 20px;
+    color:#767676
+  }
+  
+  .addchromebtn{
+    margin-top: 20px;
+    border-radius: 25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px 15px 10px 15px;
+    width:100%
+  }
+  
+  .logindiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 97%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: 130px;
+  }
+  
+  .companies{
+    margin:auto;
+    margin-top:70px;
+    width:75%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    gap:40px;
+  }
+  
+  .loginbtn{
+    margin:auto;
+    margin-top: 20px;
+    border-radius: 30px;
+    padding:15px 10px 15px 10px;
+    font-size: 15px;
+    color:white;
+    font-weight: lighter;
+    width:45%;
+    
+  }
+  
+  .maindiv{
+    padding-bottom: 80px;
+  }
+  }

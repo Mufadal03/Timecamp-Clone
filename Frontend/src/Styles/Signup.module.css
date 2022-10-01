@@ -1,0 +1,402 @@
+.navbarlogo {
+  width: 140px;
+  height: 40px;
+}
+
+.navbarcontent {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  align-items: center;
+}
+
+.signupdiv {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 40%;
+  border-radius: 30px;
+  margin: auto;
+  margin-top: 70px;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.heading {
+  font-size: 37px;
+  font-weight: 700;
+  padding-top: 40px;
+}
+
+.subheading {
+  font-size: 25px;
+  width: 70%;
+  color: #8f7e77;
+  font-weight: 700;
+  margin: auto;
+  margin-top: 12px;
+}
+
+.subsubheading {
+  font-size: 16px;
+  font-weight: 500;
+  color: #767676;
+  margin-top: 15px;
+}
+
+.googlebtn {
+  width: 75%;
+  margin: auto;
+  height: 40px;
+  border: 1px solid silver;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.googlelogo {
+  font-size: 30px;
+}
+
+.googletext {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.inputdiv {
+  margin: auto;
+  width: 75%;
+  margin-top: 20px;
+}
+
+.note {
+  color: gray;
+  font-size: 14px;
+  width: 65%;
+  text-align: left;
+  margin: auto;
+  margin-top: 20px;
+}
+
+@media (min-width: 375px) and (max-width: 667px) {
+  .signupdiv {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  .heading {
+    font-size: 27px;
+    font-weight: 700;
+    padding-top: 30px;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 80%;
+    color: #8f7e77;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .subsubheading {
+    font-size: 13px;
+    font-weight: 500;
+    color: #767676;
+    margin-top: 10px;
+  }
+
+  .googlebtn {
+    width: 75%;
+    margin: auto;
+    height: 37px;
+    border: 1px solid silver;
+    border-radius: 8px;
+    display: flex;
+    justify-content: left;
+    padding-left: 15px;
+    align-items: center;
+    gap: 30px;
+    margin-top: 25px;
+  }
+
+  .googlelogo {
+    font-size: 24px;
+  }
+
+  .googletext {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .note {
+    color: gray;
+    font-size: 14px;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 896px) {
+  .navbarcontent {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+  }
+
+  .signupdiv {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .note {
+    color: gray;
+    font-size: 14px;
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 90%;
+    color: #8f7e77;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 740px) {
+  .navbardiv {
+    width: 105%;
+  }
+
+  .navbarcontent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+  }
+
+  .signupdiv {
+    width: 90%;
+    margin-top: 40px;
+    margin-left: 25px;
+  }
+
+  .heading {
+    font-size: 25px;
+    padding-top: 30px;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 78%;
+    color: #8f7e77;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .subsubheading {
+    font-size: 13px;
+    font-weight: 500;
+    color: #767676;
+    margin-top: 10px;
+  }
+
+  .note {
+    color: gray;
+    font-size: 14px;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 412px) and (max-width: 915px) {
+  .navbardiv {
+    width: 100%;
+  }
+
+  .signupdiv {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 85%;
+    color: #8f7e77;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbardiv {
+    width: 100%;
+  }
+
+  .signupdiv {
+    width: 65%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 30px;
+    margin-top: 40px;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+
+  .heading {
+    font-size: 37px;
+    font-weight: 700;
+    padding-top: 30px;
+  }
+
+  .subheading {
+    font-size: 25px;
+    width: 80%;
+    color: #8f7e77;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 8px;
+  }
+
+  .note {
+    color: gray;
+    font-size: 14px;
+    width: 70%;
+    text-align: left;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 720px) {
+  .navbardiv {
+    width: 100%;
+  }
+
+  .navbarcontent {
+    width: 90%;
+  }
+
+  .signupdiv {
+    width: 90%;
+  }
+
+  .googlebtn {
+    width: 70%;
+    margin: auto;
+    height: 40px;
+    border: 1px solid silver;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 75%;
+  }
+}
+
+@media (min-width: 912px) and (max-width: 1368px) {
+  .navbardiv {
+    width: 100%;
+  }
+}
+
+@media (min-width: 280px) and (max-width: 653px) {
+  .navbardiv {
+    width: 100%;
+  }
+
+  .signupdiv {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 90%;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+
+  .heading {
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 40px;
+    width: 80%;
+    margin: auto;
+    line-height: 30px;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 70%;
+    color: #8f7e77;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 12px;
+    line-height: 18px;
+  }
+
+  .subsubheading {
+    font-size: 14px;
+    font-weight: 500;
+    color: #767676;
+    margin: auto;
+    margin-top: 15px;
+    width: 80%;
+  }
+
+  .googlebtn {
+    width: 75%;
+    margin: auto;
+    height: 40px;
+    border: 1px solid silver;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  .googlelogo {
+    font-size: 30px;
+  }
+
+  .googletext {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .note {
+    color: gray;
+    font-size: 14px;
+    width: 65%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
