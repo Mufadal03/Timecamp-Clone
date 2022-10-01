@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
+import FAQ from '../../Components/Homepage/FAQ'
 import GetDemo from '../../Components/Homepage/GetDemo'
 import Info from '../../Components/Homepage/Info'
 import Integration from '../../Components/Homepage/Integration'
@@ -13,7 +14,7 @@ import TempNav from '../temp/TempNav'
 
 const Homepage = () => {
   return (
-    <Box h="1000vh">
+    <Box h="1400vh">
       {/* <TempNav /> */}
       <Landing />
       <LandingFooter />
@@ -23,6 +24,7 @@ const Homepage = () => {
       <Reviews />
       <Integration />
       <Pricing />
+      <FAQ/>
     </Box>
   )
 }

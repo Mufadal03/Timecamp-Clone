@@ -4,6 +4,7 @@ const { Authentication } = require("./middlewares/Authentication")
 // const { Authorization } = require("./middlewares/Authorization")
 const { ProjectController } = require("./routes/Project.routes")
 const { RegisterController } = require("./routes/Register.routes")
+const { TagController } = require("./routes/Tag.routes")
 const app = express()
 require("dotenv").config()
 app.use(express.json())
@@ -16,6 +17,7 @@ app.use("/user",RegisterController)
 
 app.use("/projects",Authentication,ProjectController)
 
+app.use("/tags",TagController)
 
 
 
