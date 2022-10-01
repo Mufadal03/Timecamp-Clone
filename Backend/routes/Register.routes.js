@@ -2,13 +2,16 @@ const {Router} = require("express")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const { SignupModel } = require("../models/User.model")
+const AlreadyRegistered = require("../middlewares/AlreadyRegistered")
+const { EmailValidator } = require("../middlewares/EmailValidator")
+const { PasswordValidator } = require("../middlewares/passwordValidator")
 RegisterController = Router()
 
-RegisterController.post("/signup", (req, res) => {
+RegisterController.post("/signup",AlreadyRegistered,EmailValidator,PasswordValidator, (req, res) => {
     const { email, password } = req.body
     bcrypt.hash(password, 6).then(async(hash) => {
         const newUser = SignupModel({ email, password: hash })
-        await newUser.save()
+        // await newUser.save()
        res.send({"msg":"Signup Successfull"})
     }).catch(() => {
         res.send({"msg":"Something went wrong please try again later"})
@@ -16,7 +19,7 @@ RegisterController.post("/signup", (req, res) => {
 })
 
 
-RegisterController.post("/login", async(req, res) => {
+RegisterController.post("/login",EmailValidator, async(req, res) => {
     const { email, password } = req.body
     const user = await SignupModel.findOne({ email })
     if(user==null)res.send({"msg":"Please Login"})

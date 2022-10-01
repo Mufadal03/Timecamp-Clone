@@ -11,7 +11,7 @@ const PORT = process.env.PORT_NO
 app.get("/", (req, res) => {
     res.send("Welcome")
 })
-
+    
 app.use("/user",RegisterController)
 
 app.use("/projects",Authentication,ProjectController)
@@ -26,4 +26,4 @@ app.listen(PORT, async () => {
     } catch(e) {
         console.log(e)
     }
-})
+}) 
