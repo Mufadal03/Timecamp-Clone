@@ -79,7 +79,7 @@ const Signup = () => {
         let result;
        await axios({
           method: "post",
-          url: "https://pure-fjord-44762.herokuapp.com/user/register",
+          url: "http://localhost:7000/user",
           data: usercreds,
         }).then((res) => (setFlag(res.data),result=res.data));
         if (result !== "Signup Successfull") {

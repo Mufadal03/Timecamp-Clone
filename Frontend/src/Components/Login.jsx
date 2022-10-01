@@ -10,7 +10,7 @@ import { useEffect } from "react";
 const Login = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar login="true" />
       <Box display="flex">
         <Loghead />
         <LoginBox />
@@ -75,7 +75,7 @@ const LoginBox = () => {
 
     axios({
       method: "post",
-      url: "https://pure-fjord-44762.herokuapp.com/user/login",
+      url: "http://localhost:7000/user",
       data: usercreds,
     }).then(
       (res) => (
@@ -100,7 +100,7 @@ const LoginBox = () => {
   useEffect(() => {
     if (routeflag === "Login Successfull") {
       // navigate("/homepage/timesheet", { replace: true });
-      console.log("useeffect");
+     // console.log("useeffect");
     }
   }, [routeflag]);
 
