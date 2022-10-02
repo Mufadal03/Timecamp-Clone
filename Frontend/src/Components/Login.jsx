@@ -1,12 +1,11 @@
-import { Box, Input, Text, Image } from "@chakra-ui/react";
-import axios from "axios";
+import { Box, Input, Text,Image } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 import Navbar from "./Loginavbar";
 import styles from "../Styles/Login.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
+import axios from "../axios/axios"
 const Login = () => {
   return (
     <div>
@@ -22,6 +21,7 @@ const Login = () => {
 export default Login;
 
 const Loghead = () => {
+
   const handlesubmit = () => {
     window.open(
       "https://chrome.google.com/webstore/detail/time-tracker-by-timecamp/ohbkdjmhoegleofcohdjagmcnkimfdaa"
@@ -106,36 +106,36 @@ const LoginBox = () => {
       password: passwordref.current.value,
     };
 
+
     axios({
       method: "post",
       url: "http://localhost:4000/user/login",
       data: usercreds,
     }).then(
       (res) => (
+
+      axios.post("/user/login",usercreds)
+        .then((res) => (
+      console.log(res.data),
+
         localStorage.setItem("token", res.data.token),
-        localStorage.setItem("email", JSON.stringify(emailref.current.value)),
-        setFlag(res.data.message),
-        setRouteflag(res.data.message)
+        setFlag(res.data.msg),
+        setRouteflag(res.data.msg)
       )
     ).catch((err)=>{
       console.log(err)
     })
   };
 
-  const handlegoogleauth = () => {
-    localStorage.setItem("google", true);
-    window.open("https://pure-fjord-44762.herokuapp.com/auth/google");
-  };
+  
 
   const handlesignup = () => {
     navigate("/signup", { replace: true });
-    //console.log("hello")
   };
 
   useEffect(() => {
     if (routeflag === "Login Successfull") {
-      // navigate("/homepage/timesheet", { replace: true });
-      // console.log("useeffect");
+      navigate("/", { replace: true });
     }
   }, [routeflag]);
 
@@ -146,7 +146,6 @@ const LoginBox = () => {
       <Box
         className={styles.googlebtn}
         _hover={{ backgroundColor: "gray.100" }}
-        onClick={() => handlegoogleauth()}
       >
         <FcGoogle fontSize="30px" />
         <Text fontSize="14px" fontWeight="700" color="#8f7e77">
@@ -160,7 +159,7 @@ const LoginBox = () => {
 
       <Box margin="auto" width="75%" marginTop="20px">
         <Input
-          ref={emailref}
+          ref={ emailref}
           focusBorderColor="#25cf60"
           placeholder="email"
           type="email"

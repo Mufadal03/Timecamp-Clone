@@ -142,12 +142,13 @@
 .Timer{
     width: 85%;
     margin: auto;
-    border : 1px solid black;
+    border : 1px solid green;
     height: 80px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: rgba(66, 218, 43, 0.35) 0px 5px 15px;
 }
 .popContent{
     display: flex;
@@ -196,4 +197,100 @@
     width: 40%;
     height: fit-content;
     height: 50%;
+}
+
+.data{
+   border: 1px solid black;
+    width: 90%;
+    margin:auto;
+    margin-top: 50px;
+}
+.childDiv{
+
+    border: 1px solid black;
+    width: 95%;
+    margin:auto;
+    height: 80px;
+    margin-top: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.div1{
+
+
+    width: 10%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left:2%;
+    text-align:left;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.div2{
+   
+    width: 30%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  
+}
+.div3{
+    border: 1px solid black;
+    width: 30%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2%;
+}
+.fnctn{
+    border: 1px solid gray;
+    width: 12%;
+    height: 35px;
+    border-radius: 10px;
+    
+}
+.fnctn>button{
+   
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 16%;
+}
+.fnctn:hover{
+    background-color: #c7c4c4;
+}
+
+.time{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+.start{
+    width: 35%;
+    border-radius: 5px;
+    border: 1px solid black;
+
+}
+.hyphen{
+    width: 10%;
+    border: 1px solid black;
+}
+.stopwatch{
+    width: 45%;
+    height: 100%;
+    border: 1px solid black;
 }
