@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom"
 import { Box, Image, Text } from "@chakra-ui/react";
 import styles from "../Styles/Signup.module.css"
 
-const Navbar = () => {
+const Navbar = ({login}) => {
     const navigate = useNavigate();
 
     const handlelogin = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
           cursor="pointer"
           onClick={() => handlelogin()}
         >
-          Log in
+          {login==="true"? "":"Log in"}
         </Text>
       </div>
     </Box>

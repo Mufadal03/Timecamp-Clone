@@ -31,6 +31,22 @@ const Signup = () => {
     else if (response[0] == "P") {
       setError("Password should be greater than 8")
       setPassError(true)
+    const handlesubmit =  async() => {
+        let usercreds = {
+          "email": emailref.current.value,
+          "password": passwordref.current.value,
+          "phone": phoneref.current.value,
+        };
+        let result;
+       await axios({
+          method: "post",
+          url: "http://localhost:7000/user",
+          data: usercreds,
+        }).then((res) => (setFlag(res.data),result=res.data));
+        if (result !== "Signup Successfull") {
+          setSignupflag(false);
+        }
+        
     }
     else if (response[0] == "E") {
       setError("Email is invalid")
