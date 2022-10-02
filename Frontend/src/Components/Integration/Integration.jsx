@@ -337,7 +337,7 @@ const Integration = () => {
    <button className={styles.btn3} style={{marginLeft:"30px"}}>Contact Sale</button>
    </div>
    </Flex>
-      <Footer />
+      {/* <Footer /> */}
     </Flex>
   );
 };

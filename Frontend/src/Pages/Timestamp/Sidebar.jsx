@@ -7,7 +7,7 @@ import tagg from "../Images/tag-gy.png";
 import teamg from "../Images/team-gy.png";
 import client1 from "../Images/clients-1.png";
 import client2 from "../Images/clients-2.png";
-
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
@@ -23,24 +23,24 @@ const Sidebar = () => {
       <div className={styles.track}>
         <p className={styles.type}>TRACK</p>
         <button>
-          {" "}
-          <img className={styles.logo} src={trackg} alt="clock" />
+         
+         <Link to="/timestamp"><img className={styles.logo} src={trackg} alt="clock" /></Link> 
         </button>
       </div>
       <div className={styles.analyze}>
         <p className={styles.type}>ANALYZE</p>
         <button>
-          {" "}
+         
           <img className={styles.logo} src={analyzeg} alt="analyze" />
         </button>
       </div>
       <div className={styles.manage}>
         <p className={styles.type}>MANAGE</p>
         <button>
-          <img className={styles.logo1} src={tagg} alt="tag" />
+          <Link to="/tags"><img className={styles.logo1} src={tagg} alt="tag" /></Link>
         </button>
         <button>
-          <img className={styles.logo1} src={manageg} alt="manageg" />
+          <Link to="/project"><img className={styles.logo1} src={manageg} alt="manageg" /></Link>
         </button>
       </div>
       <div className={styles.team}>

@@ -30,14 +30,12 @@ const Tags = () => {
 
 
 
-  // const token = localStorage.getItem("token"); <----- add hare
-  let token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzM3MGNmZWUxMWZjYjZmZjM1MGM1MGIiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpYXQiOjE2NjQ3MTE4MDZ9.EF_erXuVL1s4qZsz3x-2JwUcDnw2iSv-n9Xi3VmQXc0";
-
+  const token = localStorage.getItem("token"); 
+  
   const getData = () => {
     setLooding(true);
 
-    axios.get('/tags/',
+    axios.get('/tags',
     {headers :{Authorization: `Bearer ${token}`}
   })
     .then((res) => {

@@ -11,6 +11,7 @@ import ProjectcontextProvider from "../Context/ProjectContext";
 import Addprojects from "../Pages/Project/Addprojects";
 import { Timestamp } from "../Pages/Timestamp/Timestamp";
 import Layout from "../Components/HOC/Layout";
+import Tags from "../Pages/Tag/Tags";
 
 const MainRoutes = () => {
   return (
@@ -26,11 +27,11 @@ const MainRoutes = () => {
 
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/features" element={<Feature />} />
-      <Route path="/integration" element={<Integration />} />
-      <Route path="/price" element={<Price />} />
+      <Route path="/features" element={<Layout><Feature /></Layout>} />
+      <Route path="/integration" element={<Layout><Integration /></Layout>} />
+      <Route path="/price" element={<Layout><Price /></Layout>} />
       <Route path="/timestamp" element={<Timestamp />} />
-      <Route path="/projects" element={<Addprojects />} />
+      <Route path="/tags" element={<Tags />} />
       <Route
         path="/project"
         element={

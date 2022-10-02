@@ -6,7 +6,7 @@ import {
   PopoverBody,
   Text,
   PopoverContent,
-  PopoverTrigger,
+  PopoverTrigger,Flex
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { AiOutlineArrowsAlt } from "react-icons/ai";
@@ -51,10 +51,12 @@ const Addprojects = () => {
   };
   return (
     <Box>
+      <Box>
+        <Flex>
       <Sidebar/> 
       <Box
         minHeight={"100vh"}
-        marginLeft={"5%"}
+       
         width={"100%"}
         overflow={"scroll"}
         border={"1px solid black"}
@@ -217,6 +219,8 @@ const Addprojects = () => {
             )}
           </Box>
         </Box>
+      </Box>
+      </Flex>
       </Box>
     </Box>
   );

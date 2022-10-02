@@ -115,10 +115,10 @@ const LoginBox = () => {
           setRouteflag(res.data.msg)
         )
       )
-    ).catch((err)=>{
+    .catch((err)=>{
       console.log(err)
-    }))
-    )}
+    })
+    }
 
   const handlesignup = () => {
     navigate("/signup", { replace: true });
@@ -126,7 +126,7 @@ const LoginBox = () => {
 
   useEffect(() => {
     if (routeflag === "Login Successfull") {
-      navigate("/", { replace: true });
+      navigate("/timestamp", { replace: true });
     }
   }, [routeflag]);
 
