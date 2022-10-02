@@ -10,9 +10,8 @@ ProjectController.get("/", async (req, res) => {
 
 ProjectController.post("/create", async (req, res) => {
 
-  const d = new Date();
-  const time = d.getTime();
-  const newProject = ProjectModel({ ...req.body, startTime: time });
+ 
+  const newProject = ProjectModel(req.body);
   await newProject.save();
   res.send({ msg: "Project created" });
 });
