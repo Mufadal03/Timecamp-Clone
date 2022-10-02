@@ -33,7 +33,7 @@ const EasySteps = () => {
       <Flex>
         <Show breakpoint="(min-width: 1000px)">
         <Flex>
-          <Image src="https://cdn-m.timecamp.com/img/greenbranding/automaticMode.png"/>
+          <Image  src="https://cdn-m.timecamp.com/img/greenbranding/automaticMode.png"/>
         </Flex>
         </Show>
         <Flex gap={"50"} mt={"100px"} direction={"column"}>
