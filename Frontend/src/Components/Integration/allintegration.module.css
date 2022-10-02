@@ -91,7 +91,6 @@ margin-right: auto;
 }
 .bottom{
     width: 1200px;
-    border: 1px solid grey;
     justify-content: center;
     margin-left: 10%;
     text-align: center;
@@ -154,3 +153,9 @@ margin-right: auto;
     color:black
 }
 
+
+.zoom:hover img {
+    transform: scale(1.2);
+  }
+
+  
