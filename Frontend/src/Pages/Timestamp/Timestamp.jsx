@@ -12,7 +12,7 @@ import {GrPieChart} from "react-icons/gr";
 import {GiBackwardTime} from "react-icons/gi";
 import {RiDeleteBin5Line} from "react-icons/ri";
 import {BiCalendar,BiDollar} from "react-icons/bi";
-
+import axios from "../../axios/axios";
 
 import {
   Popover,
@@ -30,48 +30,149 @@ import { BsFillStopFill } from "react-icons/bs";
 
 const Timestamp = () => {
   const [date, setDate] = React.useState("");
-  const [play, setPlay] = React.useState(false);
+  const [start ,setStart] = React.useState("");
+  const [stop , setStop] = React.useState("");
+  const [play, setPlay] = React.useState(true);
   const [hide, setHide] = React.useState(false);
   const [todo, setTodo] = React.useState("");
-  const [startTime] = React.useState(new Date());
-  const [EndTime , setEndTime] = React.useState("");
+  const [working , setWorking] = React.useState({});
+  const [timerId ,setTimerId] =React.useState(null);
+  const [timer ,setTimer] = React.useState(1);
+  const [tags , setTags] = React.useState([]);
+  const [selected , setSelected] = React.useState("");
+  const [projects , setProjects ] = React.useState([]);
+  const [duration , setDuration] = React.useState("");
 
-  let time = useRef(new Date());
-  let StartTime = startTime.getHours() + ":" + startTime.getMinutes();
+  function msToTime(duration) {
+    var milliseconds = Math.floor((duration % 1000) / 100),
+      seconds = Math.floor((duration / 1000) % 60),
+      minutes = Math.floor((duration / (1000 * 60)) % 60),
+      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
   
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+  
+    return hours + ":" + minutes + ":" + seconds;
+  }
 
-  let data = [
-    { id: 1, task: "nem" },
-    { id: 2, task: "nem-111" },
-    {id : 3, task:"hello"}
-  ];
-  let tag = [
-    { id: 1, tag: "imp" },
-    { id: 2, tag: "not-imp" },
-  ];
+  const startingTime =()=>{
 
-  const handleChange = (e) => {
-    setDate(e.target.value);
-    console.log(date);
+    if(!timerId){
+
+        let id = setInterval(() =>{
+            setTimer((prev)=>prev+1000);
+        },1000);
+        setTimerId(id);
+        
+    }
+    
+};
+const pauseTimer =()=>{
+    clearInterval(timerId);     
+    setTimerId(null);
+
+};
+
+
+  const handleDate = (e) => {
+
+    let now = new Date();
+    let day =now.toLocaleDateString();
+    setDate(day);
   };
 
   const handlePlay = () => {
+
     setPlay(!play);
 
+    if(play === true){
+      startingTime();
+      
+    }
+    else if(play === false){
+      pauseTimer();
+      let endTime = new Date();
+      let end = endTime.getHours() + ":" + endTime.getMinutes();
+      setStop(end);
+      let timings = msToTime(timer);
+      setDuration(timings);
+
+      const token =localStorage.getItem("token");
+      axios.patch(`/projects/${working._id}`, {headers : {Authorization :`Bearer ${token}`,'Content-Type': 'application/json' }},{
+           startTime : start,
+           endTime:stop, 
+           tags:selected     
+      }).then((res)=>{
+        console.log(res);
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+    }
   };
 
-  const handleSubmit = (task) => {
-    console.log(task);
-    setTodo(task);
+  const handleSubmit = (el) => {
+    // console.log(el.task);
+    setTodo(el.title);
     if (!todo) {
       setHide(!hide);
     }
+    setWorking(el);
+    const startTime = new Date();
+    let starting = startTime.getHours() + ":" + startTime.getMinutes();
+    setStart(starting);
   };
  
-  useEffect(() => {
-    setDate(new Date());
+  const fetchTags=()=>{
+      const token =localStorage.getItem("token")
+    axios.get("/tags" , {headers : {Authorization :`Bearer ${token}` }})
+    .then((res) =>{
+      console.log("projects")
+      // console.log(res.data);
+      setTags(res.data);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
 
-  }, []);
+  const fetchProjects =()=>{
+    const token =localStorage.getItem("token")
+    axios.get("/projects" ,{headers : {Authorization :`Bearer ${token}` }})
+    .then((res)=>{
+      // console.log(res.data);
+      setProjects(res.data);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
+
+const reset =()=>{
+    clearInterval(timerId);
+ 
+    setTimer(0);
+    setTimerId(null);
+};
+
+   const handleDelete=()=>{
+       
+    setWorking({});
+    reset();
+    setHide(!hide);
+  }
+
+const selectTag=(e)=>{
+     setSelected(e.target.value);
+}
+  useEffect(() => {
+
+    fetchTags();
+    fetchProjects();
+    console.log(duration);
+  }, [duration]);
+
 
   return (
     <div className={styles.mainDiv}>
@@ -91,7 +192,7 @@ const Timestamp = () => {
                 <input
                   type="date"
                   className={styles.Calender}
-                  onChange={handleChange}
+                  onChange={handleDate}
                 />
               </button>
               <button className={styles.calenderNext}>
@@ -143,8 +244,8 @@ const Timestamp = () => {
                     <AttachmentIcon />
                     <select className={styles.tagBtn}>
                       <option value="--">select a tag</option>
-                      {tag.map((el) => {
-                        return <option key={el.id}>{el.tag}</option>;
+                      {tags.map((el) => {
+                        return <option key={el._id}>{el.tagTitle}</option>;
                       })}
                     </select>
                   </Flex>
@@ -162,14 +263,14 @@ const Timestamp = () => {
                     <PopoverCloseButton />
                     <PopoverBody></PopoverBody>
                     <PopoverFooter>
-                      {data.map((el) => {
+                      {projects.map((el) => {
                         return (
-                          <div className={styles.indtask} key={el.id}>
+                          <div className={styles.indtask} key={el._id}>
                             <Text
                               marginLeft={"10px"}
-                              onClick={() => handleSubmit(el.task)}
+                              onClick={() => handleSubmit(el)}
                             >
-                              {el.task}
+                              {el.title}
                             </Text>
                           </div>
                         );
@@ -181,27 +282,27 @@ const Timestamp = () => {
             </div>
             <Button
               marginRight={"2%"}
-              rightIcon={play ? <BsFillStopFill /> : <FaPlay />}
-              colorScheme={play ? "red" : "green"}
+              rightIcon={play ? <FaPlay  /> : <BsFillStopFill /> }
+              colorScheme={play ? "green" : "red"}
               variant="outline"
               onClick={handlePlay}
+              disabled={!working._id}
             >
-              {play ? "STOP TIMER" : "START TIMER"}
+              {play ? "START TIMER" : "STOP TIMER"}
             </Button>
           </div>
 
           <div className={styles.data}>
-            {data.map((el) => {
-              return (
-                <div className={styles.childDiv} key={el.id}>
+            
+          { working._id && <div className={styles.childDiv} key={working._id}>
                   <div className={styles.div1}>
-                    <div>{el.task}</div>
+                    <div>{working.title}</div>
                     <Flex className={styles.tags}>
                       <AttachmentIcon />
-                      <select className={styles.tagBtn}>
+                      <select className={styles.tagBtn} onChange={selectTag}>
                         <option value="--">select a tag</option>
-                        {tag.map((el) => {
-                          return <option key={el.id}>{el.tag}</option>;
+                        {tags.map((el) => {
+                          return <option key={el.id}>{el.tagTitle}</option>;
                         })}
                       </select>
                     </Flex>
@@ -212,23 +313,31 @@ const Timestamp = () => {
                     <div className={styles.fnctn}><button><GiBackwardTime/></button></div>
                     <div className={styles.fnctn}><button><BiDollar/></button></div>
                     <div className={styles.fnctn}><button><FaRegClone/></button></div>
-                    <div className={styles.fnctn}><button><RiDeleteBin5Line/></button></div>
+                    <div className={styles.fnctn}><button onClick={()=>{handleDelete}} disabled={play === false}><RiDeleteBin5Line/></button></div>
                   </div>
                   <div className={styles.div3}>
                     <div className={styles.time}>
-                         <div className={styles.start}>
-                          {StartTime}
+                         <div className={styles.start} >
+                        {start}
                          </div>
                          <div className={styles.hyphen}>-</div>
-                         <div className={styles.start}>
-                         {EndTime}
+                         <div className={styles.start} >
+                         {stop}
                          </div>
                     </div>
-                    <div className={styles.stopwatch}></div>
+                    <div className={styles.stopwatch}>
+                      <div className={styles.timerSection}>
+                      {msToTime(timer)}
+                      </div>
+                      <div className={styles.watchBtn}>
+                      <button  onClick={handlePlay}>
+                        {play ?  <FaPlay /> : <BsFillStopFill /> }
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+                }
           </div>
         </div>
       </div>

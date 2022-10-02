@@ -124,8 +124,10 @@ const LoginBox = () => {
       )
     ).catch((err)=>{
       console.log(err)
-    })
-  };
+    }))
+    )}
+
+  
 
   
 

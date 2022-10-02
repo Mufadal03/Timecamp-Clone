@@ -200,7 +200,7 @@
 }
 
 .data{
-   border: 1px solid black;
+   /* border: 1px solid black; */
     width: 90%;
     margin:auto;
     margin-top: 50px;
@@ -245,7 +245,7 @@
   
 }
 .div3{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 30%;
     height: fit-content;
     display: flex;
@@ -287,10 +287,39 @@
 }
 .hyphen{
     width: 10%;
-    border: 1px solid black;
 }
 .stopwatch{
     width: 45%;
-    height: 100%;
+    height: fit-content;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5%;
+}
+.timerSection{
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    height: 35px ;
+    width: 70%;
+}
+.timerSection:hover{
+    border: 1px solid green;
+}
+
+.watchBtn{
     border: 1px solid black;
+    border-radius: 10px;
+    height: 35px ;
+    width: 20%;
+    
+}
+
+.watchBtn>button{
+ 
+   width: fit-content;
+   margin: auto;
+   margin-top: 26%;
+   margin-left: 5%;
+   
 }
