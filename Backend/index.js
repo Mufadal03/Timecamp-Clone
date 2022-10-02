@@ -14,7 +14,7 @@ app.use(cors())
 
 app.use(express.json())
 app.use(cors())
-const PORT = process.env.PORT_NO 
+const PORT = process.env.PORT || 4000 
 app.get("/", (req, res) => {
     res.send("Welcome")
 })

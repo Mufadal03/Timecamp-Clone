@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 const { SignupModel } = require("../models/User.model")
 const AlreadyRegistered = require("../middlewares/AlreadyRegistered")
 const { EmailValidator } = require("../middlewares/EmailValidator")
-const { PasswordValidator } = require("../middlewares/passwordValidator")
+const { PasswordValidator } = require("../middlewares/PasswordValidator")
 RegisterController = Router()
 
 RegisterController.post("/signup",AlreadyRegistered,EmailValidator,PasswordValidator, (req, res) => {
