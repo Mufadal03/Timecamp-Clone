@@ -1,88 +1,88 @@
 import React, { useState } from "react";
-
-import { DeleteIcon, AddIcon,  } from "@chakra-ui/icons";
+import { DeleteIcon, AddIcon } from "@chakra-ui/icons";
 import { AiFillEdit } from "react-icons/ai";
-import {TopNavbar} from "./TopNavbar.jsx"
+import { TopNavbar } from "./TopNavbar.jsx";
+import { useEffect } from "react";
+import { Sidebar } from "./Sidebar.jsx";
+import axios from "../../axios/axios"
 import {
   Box,
   Flex,
   Text,
   Input,
   Button,
-  Image
-
+  Image,
+  Alert,
+  AlertIcon
 } from "@chakra-ui/react";
-import { useEffect } from "react";
+
 
 const Tags = () => {
-  
-  const baseUrl = "http://localhost:4000/tags"
+  const baseUrl = "http://localhost:4000/tags";
 
-  const [looding, setLooding] = useState(false)
+  const [looding, setLooding] = useState(false);
   const [check, setcheck] = useState(false);
   const [textupdate, setTextupdate] = useState("");
   const [text, setText] = useState("");
- const  [tagdata, setTagData] = useState([])
+  const [tagdata, setTagData] = useState([]);
+  const [alert, setAlert] = useState(false);
+  const [resShow, setResShow] = useState("");
+
+
 
   // const token = localStorage.getItem("token"); <----- add hare
-  let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzM3MGNmZWUxMWZjYjZmZjM1MGM1MGIiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpYXQiOjE2NjQ2ODk2NTR9.oysOEfHH30YFusJCqpdRajHaj-C2E7l8igcjkGE65Ew"
-  
-  
-  const getData =()=>{
-    setLooding(true)
-      fetch(baseUrl + "/",{
-          method:"GET",
-          headers:{'Authorization': `Bearer ${token}`},
-      })
-      .then((res) => res.json())
-          .then((res) => {
-            setLooding(false)
-            setTagData(res)
-          })
-          .catch((err) => console.log(err))
-  }
-  
-  useEffect(()=>{
-      getData()
-  },[])
+  let token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzM3MGNmZWUxMWZjYjZmZjM1MGM1MGIiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpYXQiOjE2NjQ3MTE4MDZ9.EF_erXuVL1s4qZsz3x-2JwUcDnw2iSv-n9Xi3VmQXc0";
 
+  const getData = () => {
+    setLooding(true);
 
-const handleDelete = (id) =>{
-  setLooding(true)
-    fetch(baseUrl + "/" +id,{
-        method: "DELETE",
-        headers:{'Authorization': `Bearer ${token}`}
+    axios.get('/tags/',
+    {headers :{Authorization: `Bearer ${token}`}
+  })
+    .then((res) => {
+      setLooding(false);
+      console.log(res.data)
+      setTagData(res.data);
+      console.log("after delete data .....")
     })
-    .then((res) => res.json())
-    .then((res) =>
-    {
-      setLooding(false)
-      console.log(res)
-      alert(res.msg)
-      window.location.reload()
-    } )
-    .catch((err) => console.error(err))
+    .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const handleDelete = (id) => {
+    console.log("before delete ...... data")
+    console.log(tagdata)
+    setLooding(true);
+    setAlert(false)
+
+    axios.delete('/tags/' + id,{ headers :{Authorization: `Bearer ${token}`}})
+    .then((res) => {
+      setAlert(true)
+      setLooding(false);
+      setResShow("Tags Delete successfully")
+      window.location.reload();
+
+  })
+  .catch((err) => console.error(err))
 }
 
-
   const handleTasks = () => {
-    setLooding(true)
-    const payload = {"tagTitle": text}
-    fetch("http://localhost:4000/tags/create",{
-      method:"POST",
-      headers:{
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'},
-      body:JSON.stringify(payload)
-  })
-  .then(res => {
-    let r = res.json()
-    setLooding(false)
-    setTagData(r)
-    getData()
-  })
-  .catch((err) => console.log(err))
-    
+    setLooding(true);
+    setAlert(false)
+    const payload = { tagTitle: text };
+
+    axios.post('/tags/create',payload,{ headers :{Authorization: `Bearer ${token}`}})
+    .then((res) => {
+      setLooding(true);
+      setAlert(true)
+      setResShow("Data added sussfully")
+      getData();
+      })
+      .catch((err) => console.log(err));
   };
   const handleAdd = () => {
     if (check == false) {
@@ -92,36 +92,31 @@ const handleDelete = (id) =>{
     }
   };
 
-  const handleupdate =(id) =>{
-    setLooding(true)
-    console.log(textupdate)
-    const payload = {"tagTitle": textupdate}
-    console.log(id)
+  const handleupdate = (id) => {
+    setAlert(false)
+    setLooding(true);
+    console.log(textupdate);
+    const payload = { tagTitle: textupdate };
+    console.log(id);
 
-    fetch("http://localhost:4000/tags/"+`${id}`,{
-      method:"PATCH",
-      headers:{
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-        ,
-      body:JSON.stringify(payload)
-  })
-  .then((res) => res.json())
-      .then((res) =>{
-        setLooding(false)
-        alert(res.msg)
-      } )
-      .catch((err) => console.log(err))
-
-  }
+    axios.patch('/tags/'+id ,payload,{ headers :{Authorization: `Bearer ${token}`}})
+      .then((res) => {
+        setAlert(true)
+        setResShow(res.data.msg)
+        setLooding(false);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
-    <TopNavbar />
       <Box w="100%">
-        <Box w="50%" m="auto" pt="2rem" pb="1rem">
-          <Box pb="3rem">
+        <Flex>
+        <Sidebar />
+        <Box>
+        <TopNavbar />
+        <Box w="50%" m="auto" pt="1rem" pb="1rem">
+          <Box pb="2rem">
             <Box>
               <Flex justifyContent="right">
                 <Button
@@ -135,7 +130,7 @@ const handleDelete = (id) =>{
                 </Button>
               </Flex>
             </Box>
-            <Box pb="4rem" pt="1rem">
+            <Box pb="3rem" pt="1rem">
               <Text>
                 Manage your tags, like list of customers or activities. All
                 workspace members can assign tags to time entries, when they
@@ -143,7 +138,22 @@ const handleDelete = (id) =>{
                 Reports can be filtered and grouped by tags.
               </Text>
             </Box>
-          {looding === true ? <Image ml="auto" mr="auto" display="block" pb="3rem" src="https://app.timecamp.com/res/css/images/loader.gif" />:null}
+            { alert == true ? 
+            <Box pb="1.5rem" pt="-1rem">
+            <Alert status="success" w="50%" m="auto" borderRadius="1rem">
+              <AlertIcon  />
+              {resShow}
+            </Alert> 
+            </Box>: null}
+            {looding === true ? (
+              <Image
+                ml="auto"
+                mr="auto"
+                display="block"
+                pb="3rem"
+                src="https://app.timecamp.com/res/css/images/loader.gif"
+              />
+            ) : null}
             {check === true ? (
               <Box
                 boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
@@ -168,7 +178,7 @@ const handleDelete = (id) =>{
                         p="0.5rem 1rem"
                         borderRadius="0.5rem"
                         color="white"
-                        onClick={()=> handleTasks()}
+                        onClick={() => handleTasks()}
                       >
                         Add
                       </Button>
@@ -189,7 +199,7 @@ const handleDelete = (id) =>{
             ) : null}
           </Box>
 
-          {tagdata.length > 0  &&
+          {tagdata.length > 0 &&
             tagdata.map((e) => {
               return (
                 <Box pb="1rem">
@@ -212,25 +222,24 @@ const handleDelete = (id) =>{
                         />
                       </Box>
                       {/* ------ remove ----------- */}
-                      <Box mr={"1rem"}> 
+                      <Box mr={"1rem"}>
                         <Flex justifyContent={"space-between"}>
                           <Box pr="1rem" pt="0.4rem" cursor="pointer">
-                            <AiFillEdit onClick={()=>handleupdate(e._id)} />
+                            <AiFillEdit onClick={() => handleupdate(e._id)} />
                           </Box>
                           <Box cursor="pointer">
-                            <DeleteIcon onClick={() => handleDelete(e._id)}/>
+                            <DeleteIcon onClick={() => handleDelete(e._id)} />
                           </Box>
                         </Flex>
                       </Box>
                     </Flex>
                   </Box>
-
-
                 </Box>
               );
             })}
-
         </Box>
+        </Box>
+        </Flex>
       </Box>
     </>
   );

@@ -4,7 +4,7 @@ import styles from './Topnavbar.module.css';
 const TopNavbar =()=>{
 
     return(
-        <div className={styles.mainDiv}>      
+        <div className={styles.mainDiv} >      
             <div className={styles.topBar}>
                   <div className={styles.dayLeft}>
                     <img src="https://tse2.mm.bing.net/th?id=OIP.-gqO_DmGNqenzpMoIfLYWwHaHa&pid=Api&P=0" alt="sandClock" />
