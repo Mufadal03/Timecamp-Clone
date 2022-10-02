@@ -1,0 +1,199 @@
+.mainDiv{
+   
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-start;
+}
+
+.mainPage{
+    width: 95%;
+}
+.workingDiv{
+   
+    height: fit-content;
+    width: 100%;
+    margin: auto;
+}
+
+.Details{
+
+    height: 80px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.calenderdiv{
+
+    width: 26%;
+    height: 55%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CalenderDate{
+    border: 1px solid grey;
+    width: 33%;
+    height: 100%;
+}
+.calenderPrev{
+    width: 15%;
+    height: 100%;
+    border: 1px solid grey;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.calenderPrev>div{
+
+    width: fit-content;
+    margin: auto;
+}
+.calenderNext{
+    border: 1px solid grey;
+    width: 15%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.calenderdiv>button>div{
+ 
+    width: fit-content;
+    margin: auto;
+}
+.hide{
+    display: none;
+    background-color: white;
+    border: 1px solid black;
+}
+.Calender{
+    width: 100%;
+}
+.editing{
+
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:3%;
+}
+.editing>div{
+    border: 1px solid black;
+}
+.type{
+    width: 25%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px ;
+}
+.type>button{
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    padding-left: 10%;
+    padding-right: 10%;
+   justify-content: center;
+   align-items: center;
+  
+}
+.day{
+    border-right: 1px solid black;
+}
+.refresh{
+    height: 70%;
+    padding-right: 2%;
+    padding-left: 2%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+.people{
+    height: 70%;
+    padding-right: 2%;
+    padding-left: 2%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+.bulk{
+    height: 70%;
+    display: flex;
+    align-items: center;
+    padding-right: 2%;
+    padding-left: 2%;
+    border-radius: 10px;
+}
+.sort{
+    height: 70%;
+    padding-right: 2%;
+    padding-left: 2%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.Timer{
+    width: 85%;
+    margin: auto;
+    border : 1px solid black;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.popContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+.indtask:hover{     
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+.text{
+  
+   width : 90%;
+   height: 60%;
+   font-size: 16px;
+   margin-left: 3%;
+   text-align: left;
+  
+}
+.textChild{   
+    padding-bottom: 2%;
+    letter-spacing: 1px;
+    font-weight: bold;
+} 
+.tags{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:2%;
+    margin-left: 3%;
+}
+.tagBtn{
+    height: fit-content;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+}
+.tagBtn:hover{
+    background-color: #f8f8f8;
+}
+.leftdiv{
+
+    width: 40%;
+    height: fit-content;
+    height: 50%;
+}

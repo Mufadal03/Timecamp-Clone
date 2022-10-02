@@ -9,6 +9,8 @@ import Integration from "../Components/Integration/Integration";
 import { Price } from "../Pages/Pricing/Price";
 import ProjectcontextProvider from "../Context/ProjectContext";
 import Addprojects from "../Pages/Project/Addprojects";
+import { Timestamp } from '../Pages/Timestamp/Timestamp';
+
 const MainRoutes = () => {
   return (
     <Routes>
