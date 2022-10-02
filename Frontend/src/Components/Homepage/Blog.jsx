@@ -9,7 +9,7 @@ const Blog = () => {
               <Text fontWeight={"semibold"} color="#25cf60">BLOG</Text>
               <Flex  justifyContent="space-between" alignItems={"center"}>
                   <Heading>Check the latest blog updates</Heading>
-                  <Button  mt="2rem" size={"lg"} w="-webkit-fit-content" borderRadius={"full"} bgColor="#25cf60" _hover={{ bgColor: "#25cf60" }} _focus={{ bgColor: "#25cf60" }} color="white" fontSize={"md"}>Check all articles</Button>
+                  <Button  size={"lg"} w="-webkit-fit-content" borderRadius={"full"} bgColor="#25cf60" _hover={{ bgColor: "#25cf60" }} _focus={{ bgColor: "#25cf60" }} color="white" fontSize={"md"}>Check all articles</Button>
               </Flex>
               <Grid gridTemplateColumns={"repeat(3,1fr)"} gap="3rem" mt="1rem"> 
                   {
