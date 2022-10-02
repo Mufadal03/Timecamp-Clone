@@ -87,8 +87,8 @@ const Hovershow = ({ info }) => {
 
   const handleDelete = () => {
     axios
-      .delete(`/projects/${id}/delete`, {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      .delete(`/projects/${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {
         console.log("response", res.data);

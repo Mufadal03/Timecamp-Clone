@@ -51,11 +51,12 @@ const Edittasks = () => {
   const handleEditSubmit = () => {
     axios
       .patch(
-        `/projects/${id}`,
+        `/projects/${id}`
+        ,
+        { title: edittask },
         {
-          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-        },
-        { title: edittask }
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
       )
       .then((res) => {
         console.log(res);
