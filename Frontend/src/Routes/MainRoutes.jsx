@@ -18,18 +18,14 @@ const MainRoutes = () => {
 
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/features" element={<Feature />} />
-      <Route path="/integration" element={<Integration />} />
-      <Route path="/price" element={<Price />} />
-      <Route
-        path="/projects"
-        element={
-          <ProjectcontextProvider>
-            <Addprojects />
-          </ProjectcontextProvider>
-        }
-      />
-    </Routes>
-  );
-};
-export default MainRoutes;
+          <Route path='/features' element={<Feature />} />
+           <Route path='/integration' element={<Integration />} />
+           <Route path='/price' element={<Price/>} />
+      <Route path="/project" element={<ProjectcontextProvider>
+        <Addprojects />
+      </ProjectcontextProvider>} />
+      
+      </Routes>
+)}
+export default MainRoutes
+
