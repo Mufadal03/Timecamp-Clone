@@ -2,13 +2,14 @@ import React, { useState } from "react";
 
 import { DeleteIcon, AddIcon,  } from "@chakra-ui/icons";
 import { AiFillEdit } from "react-icons/ai";
-
+import {TopNavbar} from "./TopNavbar.jsx"
 import {
   Box,
   Flex,
   Text,
   Input,
   Button,
+  Image
 
 } from "@chakra-ui/react";
 import { useEffect } from "react";
@@ -17,23 +18,27 @@ const Tags = () => {
   
   const baseUrl = "http://localhost:4000/tags"
 
-
+  const [looding, setLooding] = useState(false)
   const [check, setcheck] = useState(false);
   const [textupdate, setTextupdate] = useState("");
   const [text, setText] = useState("");
  const  [tagdata, setTagData] = useState([])
 
   // const token = localStorage.getItem("token"); <----- add hare
-  let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzM3MGNmZWUxMWZjYjZmZjM1MGM1MGIiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpYXQiOjE2NjQ2MzUyMDh9.rI6Togmr3lEqz038FYXOsv5Q-CqFmiCf-1vqgrdR6Aw"
+  let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzM3MGNmZWUxMWZjYjZmZjM1MGM1MGIiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpYXQiOjE2NjQ2ODk2NTR9.oysOEfHH30YFusJCqpdRajHaj-C2E7l8igcjkGE65Ew"
   
   
   const getData =()=>{
+    setLooding(true)
       fetch(baseUrl + "/",{
           method:"GET",
           headers:{'Authorization': `Bearer ${token}`},
       })
       .then((res) => res.json())
-          .then((res) => setTagData(res))
+          .then((res) => {
+            setLooding(false)
+            setTagData(res)
+          })
           .catch((err) => console.log(err))
   }
   
@@ -43,6 +48,7 @@ const Tags = () => {
 
 
 const handleDelete = (id) =>{
+  setLooding(true)
     fetch(baseUrl + "/" +id,{
         method: "DELETE",
         headers:{'Authorization': `Bearer ${token}`}
@@ -50,6 +56,7 @@ const handleDelete = (id) =>{
     .then((res) => res.json())
     .then((res) =>
     {
+      setLooding(false)
       console.log(res)
       alert(res.msg)
       window.location.reload()
@@ -59,7 +66,7 @@ const handleDelete = (id) =>{
 
 
   const handleTasks = () => {
-    
+    setLooding(true)
     const payload = {"tagTitle": text}
     fetch("http://localhost:4000/tags/create",{
       method:"POST",
@@ -70,6 +77,7 @@ const handleDelete = (id) =>{
   })
   .then(res => {
     let r = res.json()
+    setLooding(false)
     setTagData(r)
     getData()
   })
@@ -85,6 +93,7 @@ const handleDelete = (id) =>{
   };
 
   const handleupdate =(id) =>{
+    setLooding(true)
     console.log(textupdate)
     const payload = {"tagTitle": textupdate}
     console.log(id)
@@ -99,13 +108,17 @@ const handleDelete = (id) =>{
       body:JSON.stringify(payload)
   })
   .then((res) => res.json())
-      .then((res) => alert(res.msg))
+      .then((res) =>{
+        setLooding(false)
+        alert(res.msg)
+      } )
       .catch((err) => console.log(err))
 
   }
 
   return (
     <>
+    <TopNavbar />
       <Box w="100%">
         <Box w="50%" m="auto" pt="2rem" pb="1rem">
           <Box pb="3rem">
@@ -130,6 +143,7 @@ const handleDelete = (id) =>{
                 Reports can be filtered and grouped by tags.
               </Text>
             </Box>
+          {looding === true ? <Image ml="auto" mr="auto" display="block" pb="3rem" src="https://app.timecamp.com/res/css/images/loader.gif" />:null}
             {check === true ? (
               <Box
                 boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
