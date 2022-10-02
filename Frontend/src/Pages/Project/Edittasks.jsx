@@ -15,14 +15,32 @@ import { FiSettings } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { ProjectContext } from "../../Context/ProjectContext";
+import axios from "axios";
 
 const Edittasks = () => {
   const projectcontext = useContext(ProjectContext);
-  console.log(projectcontext);
-  const { edit, setEdit } = projectcontext;
+  const { edit, setEdit, addtask, setAddtask } = projectcontext;
+  console.log(edit, setEdit, addtask, setAddtask);
+  const [edittask, setEdittask] = useState("");
+  const remove = () => {
+    setAddtask(false);
+    setEdit(false);
+  };
+
+  const handleEditTask = (e) => {
+    setEdittask(e.target.value);
+  };
+
+  const handleEditDesc = (e) => {
+    setEdittask(e.target.value);
+  };
+
+  const handleEditSubmit = () => {
+    axios.patch();
+  };
   return (
     <>
-      {edit ? (
+      {edit || addtask ? (
         <Box
           border={"1px solid black"}
           marginLeft="1%"
@@ -34,18 +52,17 @@ const Edittasks = () => {
             marginBottom="3%"
             justifyContent="space-between"
           >
-            <Text>Edit Task</Text>
-            <Box
-              onClick={() => {
-                setEdit(false);
-              }}
-              marginRight={"0.5%"}
-            >
+            <Text>{edit ? "Edit Task" : "Add Tasks"}</Text>
+            <Box onClick={remove} marginRight={"0.5%"}>
               <IoCloseOutline />
             </Box>
           </Box>
 
-          <Input bgColor={"#e5ecfb"} border="1px solid gray"></Input>
+          <Input
+            bgColor={"#e5ecfb"}
+            onChange={handleEditTask}
+            border="1px solid gray"
+          ></Input>
           <Box color={"gray"} borderBottom="1px solid gray"></Box>
           <Box
             marginTop={"6%"}
@@ -120,6 +137,7 @@ const Edittasks = () => {
             <Input
               marginTop="3%"
               placeholder="Click here to edit description..."
+              onChange={handleEditDesc}
             ></Input>
             <Box
               color={"gray"}
@@ -241,7 +259,12 @@ const Edittasks = () => {
           </Box>
           <Box color={"gray"} borderBottom="1px solid gray"></Box>
           <Box display={"flex"} marginTop={"4%"}>
-            <Button marginRight={"3%"} bgColor="#25cf60" color={"white"}>
+            <Button
+              marginRight={"3%"}
+              onSubmit={handleEditSubmit}
+              bgColor="#25cf60"
+              color={"white"}
+            >
               Save
             </Button>
             <Button

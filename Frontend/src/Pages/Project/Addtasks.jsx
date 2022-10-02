@@ -54,17 +54,29 @@ export default Addtasks;
 
 const Hovershow = () => {
   const projectcontext = useContext(ProjectContext);
-  const { edit, setEdit } = projectcontext;
-  console.log(edit, setEdit);
+  const { edit, setEdit,addtask,setAddtask } = projectcontext;
+  console.log(edit, setEdit,addtask,setAddtask);
+
+  const handletask=()=>{
+    setAddtask(true);
+    setEdit(false)
+  }
+
+ 
+
+  const handledit=()=>{
+    setAddtask(false);
+    setEdit(true)
+  }
   return (
     <Box display={"flex"} gap="3%">
       <Button
-        onClick={() => setEdit(!edit)}
+        onClick={handletask}
         color={"aliceblue"}
         bgColor="#25cf60"
         _hover={{ opacity: "0.7" }}
       >
-        Add task
+        Add tasks
       </Button>
 
       <Button
@@ -83,7 +95,7 @@ const Hovershow = () => {
             fontWeight="normal"
             bgColor={"#fff"}
             color="gray.600"
-            onClick={() => setEdit(true)}
+            onClick={handledit}
           >
             <BsThreeDots />
           </Button>

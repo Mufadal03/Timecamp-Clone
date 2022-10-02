@@ -108,7 +108,7 @@ const LoginBox = () => {
 
     axios({
       method: "post",
-      url: "http://localhost:7000/user",
+      url: "http://localhost:4000/user/login",
       data: usercreds,
     }).then(
       (res) => (
@@ -117,7 +117,9 @@ const LoginBox = () => {
         setFlag(res.data.message),
         setRouteflag(res.data.message)
       )
-    );
+    ).catch((err)=>{
+      console.log(err)
+    })
   };
 
   const handlegoogleauth = () => {
