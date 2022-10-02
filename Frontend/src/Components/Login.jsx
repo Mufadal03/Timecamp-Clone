@@ -1,17 +1,16 @@
 import { Box, Input, Text,Image } from "@chakra-ui/react";
-import axios from "axios";
 import React, { useRef, useState } from "react";
 import Navbar from "./Loginavbar";
 import styles from "../Styles/Login.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
+import axios from "../axios/axios"
 const Login = () => {
   return (
     <div>
-      <Navbar />
-      <Box display="flex">
+      <Navbar login="true" />
+      <Box display="flex" marginTop={"3%"} marginLeft={"7%"}>
         <Loghead />
         <LoginBox />
       </Box>
@@ -22,34 +21,67 @@ const Login = () => {
 export default Login;
 
 const Loghead = () => {
+  const handlesubmit = () => {
+    window.open(
+      "https://chrome.google.com/webstore/detail/time-tracker-by-timecamp/ohbkdjmhoegleofcohdjagmcnkimfdaa"
+    );
+  };
   return (
-    <Box border="1px solid red" width="40%">
-      <Text color="black" fontSize="45px" fontWeight="700" >TimeCamp Plugin for Google Chrome</Text>
-      <Text olor="gray" fontSize="25px" fontWeight="500">Track time without leaving Chrome in 70+ online apps.</Text>
-      
+    <Box  width="40%">
+      <Text
+        color="black"
+        fontSize="45px"
+        fontWeight="700"
+        justifyContent={"start"}
+        display={"inline-block"}
+        width="60%"
+      >
+        TimeCamp Plugin for Google Chrome
+      </Text>
+      <Text
+        olor="gray"
+        fontSize="25px"
+        fontWeight="500"
+        width="60%"
+        display={"inline-block"}
+      >
+        Track time without leaving Chrome in 70+ online apps.
+      </Text>
+
       <Box
         className={styles.loginbtn}
         backgroundColor="#25cf60"
         cursor="pointer"
         _hover={{ backgroundColor: "#25cf60" }}
-        // onClick={() => handlesubmit()}
+        onClick={() => handlesubmit()}
       >
         Add TimeCamp for Chrome
       </Box>
-      <Box  display="flex" justifyContent="space-between" marginTop="18px" width="50%" border="1px solid red">
-        <Image width="25%"
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        paddingTop={"4%"}
+        width="70%"
+        margin={"auto"}
+        b
+      >
+        <Image
+          width="25%"
           src="https://cdn.timecamp.com/res/css/images/crozdesk-icon.1664454267.png"
           alt=""
         />
-        <Image width="25%"
+        <Image
+          width="25%"
           src="https://cdn.timecamp.com/res/css/images/capterra-icon.1664454267.png"
           alt=""
         />
-        <Image width="25%"
+        <Image
+          width="25%"
           src="https://cdn.timecamp.com/res/css/images/crowd-icon.1664454267.png"
           alt=""
         />
-        <Image width="25%"
+        <Image
+          width="25%"
           src="https://cdn.timecamp.com/res/css/images/get-app-icon.1664454267.png"
           alt=""
         />
@@ -72,35 +104,24 @@ const LoginBox = () => {
       email: emailref.current.value,
       password: passwordref.current.value,
     };
-
-    axios({
-      method: "post",
-      url: "https://pure-fjord-44762.herokuapp.com/user/login",
-      data: usercreds,
-    }).then(
-      (res) => (
+      axios.post("/user/login",usercreds)
+    .then((res) => (
         localStorage.setItem("token", res.data.token),
-        localStorage.setItem("email", JSON.stringify(emailref.current.value)),
-        setFlag(res.data.message),
-        setRouteflag(res.data.message)
+        setFlag(res.data.msg),
+        setRouteflag(res.data.msg)
       )
     );
   };
 
-  const handlegoogleauth = () => {
-    localStorage.setItem("google", true);
-    window.open("https://pure-fjord-44762.herokuapp.com/auth/google");
-  };
+  
 
   const handlesignup = () => {
     navigate("/signup", { replace: true });
-    //console.log("hello")
   };
 
   useEffect(() => {
     if (routeflag === "Login Successfull") {
       // navigate("/homepage/timesheet", { replace: true });
-      console.log("useeffect");
     }
   }, [routeflag]);
 
@@ -111,7 +132,6 @@ const LoginBox = () => {
       <Box
         className={styles.googlebtn}
         _hover={{ backgroundColor: "gray.100" }}
-        onClick={() => handlegoogleauth()}
       >
         <FcGoogle fontSize="30px" />
         <Text fontSize="14px" fontWeight="700" color="#8f7e77">
@@ -125,7 +145,7 @@ const LoginBox = () => {
 
       <Box margin="auto" width="75%" marginTop="20px">
         <Input
-          ref={emailref}
+          ref={ emailref}
           focusBorderColor="#25cf60"
           placeholder="email"
           type="email"

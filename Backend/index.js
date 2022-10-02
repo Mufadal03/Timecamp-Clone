@@ -13,6 +13,7 @@ require("dotenv").config()
 app.use(cors())
 
 app.use(express.json())
+app.use(cors())
 const PORT = process.env.PORT_NO 
 app.get("/", (req, res) => {
     res.send("Welcome")
@@ -22,7 +23,7 @@ app.use("/user",RegisterController)
 
 app.use("/projects",Authentication,ProjectController)
 
-app.use("/tags",TagController)
+app.use("/tags",Authentication,TagController)
 
 
 
