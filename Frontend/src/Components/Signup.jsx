@@ -4,99 +4,64 @@ import Navbar from "./Loginavbar";
 import { FcGoogle } from "react-icons/fc";
 import styles from "../Styles/Signup.module.css";
 import { useRef } from "react";
-import axios from "axios";
+import axios from "../axios/axios";
+import { useNavigate } from "react-router-dom";
 //import {useNavigate} from "react-router-dom";
 const Signup = () => {
-    const emailref = useRef();
-    const passwordref = useRef();
-    const phoneref = useRef();
-    const [flag, setFlag] = useState("");
-    const [signupflag, setSignupflag] = useState(true);
-    
-    const [emailflag, setEmailflag] = useState(true);
-    const [passwordflag, setPasswordflag] = useState(true);
-    const [emptyflag, setEmptyflag] = useState(true);
-    //const navigate = useNavigate();
-    const validator = async () => {
-      let end = "";
-      for (let i = emailref.current.value.length - 10; i < emailref.current.value.length; i++) {
-        end = end + emailref.current.value[i];
-      }
-      if (end === "@gmail.com") {
-        setEmailflag(true);
-      } else {
-        setEmailflag(false);
-      }
-      let password = passwordref.current.value;
-      let length = password.length;
-      let isnumber = false;
-      for (let i = 0; i < length; i++) {
-        if (
-          password[i] == 0 ||
-          password[i] == 1 ||
-          password[i] == 2 ||
-          password[i] == 3 ||
-          password[i] == 4 ||
-          password[i] == 5 ||
-          password[i] == 6 ||
-          password[i] == 7 ||
-          password[i] == 8 ||
-          password[i] == 9
-        ) {
-          isnumber = true;
-          break;
-        }
-      }
-      let specialcharacter = false;
-      if (
-        password.includes("@") ||
-        password.includes("#") ||
-        password.includes("$") ||
-        password.includes("%") ||
-        password.includes("&") ||
-        password.includes("*")
-      ) {
-        specialcharacter = true;
-      }
-      if (isnumber && length > 8 && specialcharacter) {
-        setPasswordflag(true)
-      } else {
-        setPasswordflag(false);
-      }
-      if (emailref.current.value.length > 0 && passwordref.current.value.length > 0) {
-        setEmptyflag(true);
-        await handlesubmit();
-      }else{
-        setEmptyflag(false);
-      }
+  const [response, setResponse] = useState("")
+  const [error,setError] = useState("")
+  const [userExist, setUserExist] = useState(false)
+  const [passError, setPassError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [serverError,setServerError] = useState(false)
+  const [clicked, setClicked] = useState(false)
+  const [isEmpty, setEmpty] = useState(false)
+  const navigate = useNavigate()
+  const [formData, setFromData] = useState({
+    email: "",
+    password:""
+  })
+
+  useEffect(() => {
+    console.log(response)
+    if (response[0] == "U") {
+      setError("User already exist")
+      setUserExist(true)
     }
-    const handlesubmit =  async() => {
-        let usercreds = {
-          "email": emailref.current.value,
-          "password": passwordref.current.value,
-          "phone": phoneref.current.value,
-        };
-        let result;
-       await axios({
-          method: "post",
-          url: "https://pure-fjord-44762.herokuapp.com/user/register",
-          data: usercreds,
-        }).then((res) => (setFlag(res.data),result=res.data));
-        if (result !== "Signup Successfull") {
-          setSignupflag(false);
-        }
-        
+    else if (response[0] == "P") {
+      setError("Password should be greater than 8")
+      setPassError(true)
     }
-    useEffect(() => {
-      if (flag === "Signup Successfull") {
-        //navigate("/loginpage", { replace: true });
-        console.log("success")
-      }
-    }, [flag]);
-     const handlegoogleauth = () => {
-      localStorage.setItem("google",true);
-       window.open("https://pure-fjord-44762.herokuapp.com/auth/google");
-     };
+    else if (response[0] == "E") {
+      setError("Email is invalid")
+      setEmailError(true)
+    }
+    else if(response=="Signup Successfull"){
+      navigate("/login")
+    }
+    else {
+      setError("Something went wrong")
+      setServerError(true)
+    }
+  }, [clicked])
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFromData({
+      ...formData,
+      [name]:value
+    })
+  }
+  const handleSubmit = () => {
+    if (formData.email && formData.password) {
+      setEmpty(false)
+      axios.post("/user/signup", formData)
+      .then((r) => setResponse(r.data.msg))
+      .catch((e) => console.log(e))
+      .finally(()=>setClicked(!clicked))
+    }
+    else setEmpty(true)
+  }
   return (
     <div style={{ paddingBottom: "20px" }}>
       <Navbar />
@@ -111,7 +76,7 @@ const Signup = () => {
         <Box
           className={styles.googlebtn}
           _hover={{ backgroundColor: "gray.100" }}
-          onClick={() => handlegoogleauth()}
+          // onClick={() => handlegoogleauth()}
         >
           <FcGoogle className={styles.googlelogo} />
           <Text className={styles.googletext} color="#8f7e77">
@@ -123,10 +88,9 @@ const Signup = () => {
         </Text>
         <Box
           hidden={
-            emailflag && passwordflag && signupflag && emptyflag === true
-              ? true
-              : false
+            !isEmpty && !userExist && !emailError && !passError && !serverError ==false ?true:false
           }
+          
           backgroundColor="#f2dede"
           border="1px solid #f2dede"
           color="brown"
@@ -141,37 +105,32 @@ const Signup = () => {
           fontSize="14px"
         >
           <Text width="90%" textAlign="justify">
-            {flag === "User Already Exists"
-              ? "This e-mail is already in use."
-              : !emptyflag
-              ? "Please provide all fields"
-              : !emailflag
-              ? "Invalid Email"
-              : !passwordflag
-              ? "Password must have greater than 8 characters, contain special character and a number."
-              : ""}
+            {
+             isEmpty?"Provide All field":error
+            }
           </Text>
         </Box>
         <Box className={styles.inputdiv}>
           <Input
-            ref={emailref}
+            name="email"
             focusBorderColor="#25cf60"
             placeholder="Email"
             type="email"
             fontWeight="lighter"
             fontSize="14px"
+            onChange={(e)=>handleChange(e)}
           />
           <Input
-            ref={passwordref}
+            name="password"
             focusBorderColor="#25cf60"
             placeholder="Password"
             type="password"
             marginTop="15px"
             fontWeight="lighter"
             fontSize="14px"
+              onChange={(e)=>handleChange(e)}                           
           />
           <Input
-            ref={phoneref}
             focusBorderColor="#25cf60"
             placeholder="Phone (optional)"
             type="phone"
@@ -190,7 +149,7 @@ const Signup = () => {
           color="white"
           fontWeight="700"
           _hover={{ backgroundColor: "#25cf60" }}
-          onClick={() => validator()}
+          onClick={()=>handleSubmit()}
         >
           Sign up for free
         </Button>
