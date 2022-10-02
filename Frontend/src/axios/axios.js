@@ -2,6 +2,6 @@
 import axios from "axios"
 
 export default axios.create({
-    baseURL:"http://localhost:4000"
-    // baseURL:"https://sayan-notes-app.herokuapp.com/"
+    // baseURL:"http://localhost:4000"
+    baseURL:"https://timescamp.herokuapp.com/"
 })
