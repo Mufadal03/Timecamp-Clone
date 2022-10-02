@@ -1,11 +1,11 @@
-import { Box, Input, Text,Image } from "@chakra-ui/react";
+import { Box, Input, Text, Image } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 import Navbar from "./Loginavbar";
 import styles from "../Styles/Login.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import axios from "../axios/axios"
+import axios from "../axios/axios";
 const Login = () => {
   return (
     <div>
@@ -21,14 +21,13 @@ const Login = () => {
 export default Login;
 
 const Loghead = () => {
-
   const handlesubmit = () => {
     window.open(
       "https://chrome.google.com/webstore/detail/time-tracker-by-timecamp/ohbkdjmhoegleofcohdjagmcnkimfdaa"
     );
   };
   return (
-    <Box  width="40%">
+    <Box width="40%">
       <Text
         color="black"
         fontSize="45px"
@@ -106,28 +105,20 @@ const LoginBox = () => {
       password: passwordref.current.value,
     };
 
-
-    axios({
-      method: "post",
-      url: "http://localhost:4000/user/login",
-      data: usercreds,
-    }).then(
-      (res) => (
-
-      axios.post("/user/login",usercreds)
-        .then((res) => (
-      console.log(res.data),
-
-        localStorage.setItem("token", res.data.token),
-        setFlag(res.data.msg),
-        setRouteflag(res.data.msg)
+    axios
+      .post("/user/login", usercreds)
+      .then(
+        (res) => (
+          console.log(res.data),
+          localStorage.setItem("token", res.data.token),
+          setFlag(res.data.msg),
+          setRouteflag(res.data.msg)
+        )
       )
-    ).catch((err)=>{
-      console.log(err)
-    })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-
-  
 
   const handlesignup = () => {
     navigate("/signup", { replace: true });
@@ -159,7 +150,7 @@ const LoginBox = () => {
 
       <Box margin="auto" width="75%" marginTop="20px">
         <Input
-          ref={ emailref}
+          ref={emailref}
           focusBorderColor="#25cf60"
           placeholder="email"
           type="email"
