@@ -99,11 +99,12 @@ const pauseTimer =()=>{
       setDuration(timings);
 
       const token =localStorage.getItem("token");
-      axios.patch(`/projects/${working._id}`, {headers : {Authorization :`Bearer ${token}`,'Content-Type': 'application/json' }},{
-           startTime : start,
-           endTime:stop, 
-           tags:selected     
-      }).then((res)=>{
+
+      axios.patch(`/projects/${working._id}`,{
+        startTime : start,
+        endTime:stop, 
+        tags:selected     
+   }, {headers : {Authorization :`Bearer ${token}`}},).then((res)=>{
         console.log(res);
       })
       .catch((err)=>{
@@ -160,7 +161,7 @@ const reset =()=>{
        
     setWorking({});
     reset();
-    setHide(!hide);
+ 
   }
 
 const selectTag=(e)=>{
@@ -302,7 +303,7 @@ const selectTag=(e)=>{
                       <select className={styles.tagBtn} onChange={selectTag}>
                         <option value="--">select a tag</option>
                         {tags.map((el) => {
-                          return <option key={el.id}>{el.tagTitle}</option>;
+                          return <option key={el._id}>{el.tagTitle}</option>;
                         })}
                       </select>
                     </Flex>
@@ -313,7 +314,7 @@ const selectTag=(e)=>{
                     <div className={styles.fnctn}><button><GiBackwardTime/></button></div>
                     <div className={styles.fnctn}><button><BiDollar/></button></div>
                     <div className={styles.fnctn}><button><FaRegClone/></button></div>
-                    <div className={styles.fnctn}><button onClick={()=>{handleDelete}} disabled={play === false}><RiDeleteBin5Line/></button></div>
+                    <div className={styles.fnctn}><button onClick={handleDelete} disabled={play === false}><RiDeleteBin5Line/></button></div>
                   </div>
                   <div className={styles.div3}>
                     <div className={styles.time}>

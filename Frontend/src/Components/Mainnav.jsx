@@ -22,6 +22,7 @@ import {
     ChevronRightIcon,
   } from '@chakra-ui/icons';
  
+
   
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
@@ -43,13 +44,13 @@ import {
   
   
           <Flex py='5' flex={{ base: 1 }} justify={{ base: 'start', md: 'start' }}>
-            <Text
+            <Link href="/"><Text
               textAlign={useBreakpointValue({ base: 'start', md:'start',lg: 'left' })}
               fontFamily={'heading'}
               ml={{base:0,md:0,lg:'8rem'}}
               color={useColorModeValue('gray.800', 'white')}>
                   <img src={Logo} alt="Logo"  />
-            </Text>
+            </Text></Link>
   
             <Flex display={{ base: 'none', md: 'none',lg:'flex' }} ml={20}>
               <DesktopNav />
@@ -246,68 +247,68 @@ import {
       children: [
         {
           label: 'Productivity tracking',
-          href: '/login',
+          href: '/features',
         },
         {
           label: 'Automatic time tracking',
-          href: '/login',
+          href: '/features',
         },
         {
           label: 'Reporting',
-          href: '#',
+          href: '/features',
         },
         {
           label: 'Timesheet approvals',
-          href: '/login',
+          href: '/features',
         },
         {
           label: 'Invoicing',
-          href: '/login',
+          href: '/features',
         },
         {
           label: 'Billing rates and budgeting',
-          href: '/login',
+          href: '/features',
         },
         {
           label: 'Attendance',
-          href: '/login',
+          href: '/features',
         },
       ],
     },
     {
       label: 'Pricing',
-      href: '/login',
+      href: '/price',
     },
     {
       label: 'Integrations',
       children: [
         {
           label: 'Trello',
-          href: '/login',
+          href: '/integration',
         },
         {
           label: 'Google Calender',
-          href: '/login',
+          href: '/integration',
         },
         {
           label: 'iCal',
-          href: '/login',
+          href: '/integration',
         },
         {
           label: 'Asana',
-          href: '/login',
+          href: '/integration',
         },
         {
           label: 'Monday.com',
-          href: '/login',
+          href: '/integration',
         },
         {
           label: 'Jira',
-          href: '/login',
+          href: '/integration',
         },
         {
           label: 'All integrations',
-          href: '/login',
+          href: '/integration',
         }
       ],
     },
