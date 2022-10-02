@@ -21,6 +21,7 @@ const Login = () => {
 export default Login;
 
 const Loghead = () => {
+
   const handlesubmit = () => {
     window.open(
       "https://chrome.google.com/webstore/detail/time-tracker-by-timecamp/ohbkdjmhoegleofcohdjagmcnkimfdaa"
@@ -105,7 +106,8 @@ const LoginBox = () => {
       password: passwordref.current.value,
     };
       axios.post("/user/login",usercreds)
-    .then((res) => (
+        .then((res) => (
+      console.log(res.data),
         localStorage.setItem("token", res.data.token),
         setFlag(res.data.msg),
         setRouteflag(res.data.msg)
@@ -121,7 +123,7 @@ const LoginBox = () => {
 
   useEffect(() => {
     if (routeflag === "Login Successfull") {
-      // navigate("/homepage/timesheet", { replace: true });
+      navigate("/", { replace: true });
     }
   }, [routeflag]);
 

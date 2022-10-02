@@ -17,6 +17,7 @@ export const Signup = () => {
   const [clicked, setClicked] = useState(false)
   const [isEmpty, setEmpty] = useState(false)
   const navigate = useNavigate()
+  const[isLoading,setLoading]= useState(false)
   const [formData, setFromData] = useState({
     email: "",
     password:""
@@ -47,18 +48,19 @@ export const Signup = () => {
   
   const handleChange = (e) => {
     const { name, value } = e.target
-    //   setFromData({
-    //     ...formData,
-    //     [name]:value
-    //   })
+       setFromData({
+         ...formData,
+         [name]:value
+       })
     }
     const handleSubmit = () => {
       if (formData.email && formData.password) {
         setEmpty(false)
+        setLoading(true)
         axios.post("/user/signup", formData)
           .then((r) => setResponse(r.data.msg))
           .catch((e) => console.log(e))
-          .finally(() => setClicked(!clicked))
+          .finally(() => setClicked(!clicked),setLoading(false))
       }
       else setEmpty(true)
     }
@@ -149,6 +151,10 @@ export const Signup = () => {
             color="white"
             fontWeight="700"
             _hover={{ backgroundColor: "#25cf60" }}
+             isLoading={isLoading}
+            loadingText='Submitting'
+            colorScheme='teal'
+            variant='outline'
             onClick={() => handleSubmit()}
           >
             Sign up for free

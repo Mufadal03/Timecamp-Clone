@@ -10,11 +10,12 @@ import { Price } from "../Pages/Pricing/Price";
 import ProjectcontextProvider from "../Context/ProjectContext";
 import Addprojects from "../Pages/Project/Addprojects";
 import { Timestamp } from '../Pages/Timestamp/Timestamp';
+import Layout from "../Components/HOC/Layout";
 
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Homepage />} />
+      <Route path="/" element={<Layout><Homepage /></Layout>} />
 
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
