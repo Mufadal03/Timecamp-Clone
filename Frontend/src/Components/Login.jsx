@@ -115,10 +115,10 @@ const LoginBox = () => {
           setRouteflag(res.data.msg)
         )
       )
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+    ).catch((err)=>{
+      console.log(err)
+    }))
+    )}
 
   const handlesignup = () => {
     navigate("/signup", { replace: true });
