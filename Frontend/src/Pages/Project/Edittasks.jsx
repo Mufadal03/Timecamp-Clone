@@ -15,13 +15,26 @@ import { FiSettings } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { ProjectContext } from "../../Context/ProjectContext";
-import axios from "axios";
+import axios from "../../axios/axios";
 
 const Edittasks = () => {
   const projectcontext = useContext(ProjectContext);
-  const { edit, setEdit, addtask, setAddtask } = projectcontext;
-  console.log(edit, setEdit, addtask, setAddtask);
+  const {
+    edit,
+    setEdit,
+    addtask,
+    setAddtask,
+    id,
+    setId,
+    userId,
+    setuserId,
+    tasklist,
+    gettasks,
+    setTasklist,
+  } = projectcontext;
+  //console.log(edit,  addtask, id,  userId, );
   const [edittask, setEdittask] = useState("");
+  const [editdesc, setEditdesc] = useState("");
   const remove = () => {
     setAddtask(false);
     setEdit(false);
@@ -32,11 +45,26 @@ const Edittasks = () => {
   };
 
   const handleEditDesc = (e) => {
-    setEdittask(e.target.value);
+    setEditdesc(e.target.value);
   };
 
   const handleEditSubmit = () => {
-    axios.patch();
+    axios
+      .patch(
+        `/projects/${id}`,
+        {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        },
+        { title: edittask }
+      )
+      .then((res) => {
+        console.log(res);
+        setTasklist(res.data);
+        gettasks();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <>
@@ -261,7 +289,7 @@ const Edittasks = () => {
           <Box display={"flex"} marginTop={"4%"}>
             <Button
               marginRight={"3%"}
-              onSubmit={handleEditSubmit}
+              onClick={handleEditSubmit}
               bgColor="#25cf60"
               color={"white"}
             >
@@ -279,7 +307,7 @@ const Edittasks = () => {
       ) : (
         <Box
           padding={"30px"}
-          width={"40%"}
+          width={"100%"}
           marginLeft="1%"
           border="1px solid gray"
           borderRadius="9px"

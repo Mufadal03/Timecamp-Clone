@@ -13,61 +13,92 @@ import { BsThreeDots } from "react-icons/bs";
 import { TbTriangleInverted } from "react-icons/tb";
 import { useContext } from "react";
 import { ProjectContext } from "../../Context/ProjectContext";
+import axios from "../../axios/axios";
+
+import { useEffect } from "react";
 
 const Addtasks = () => {
   const [isHovering, setIsHovering] = useState(false);
+  //const [tasklist, setTasklist] = useState([]);
   const projectcontext = useContext(ProjectContext);
-  console.log(projectcontext);
-  const { edit, setEdit } = projectcontext;
+  //console.log(projectcontext);
+  const { tasklist, gettasks } = projectcontext;
 
+  useEffect(() => {
+    gettasks();
+  }, []);
   const handleMouseOver = () => {
     setIsHovering(true);
   };
 
   const handleMouseOut = () => {
-    setIsHovering(false);
+    setIsHovering(true);
   };
 
   return (
     <Box
-      height={"24"}
+      height={"1%"}
       p="6"
       width="50%"
-      // zIndex={-1}
-      display={"flex"}
+      
       justifyContent={"space-between"}
-      border="0.5px solid gray"
+      border="1px solid green"
+      display={"flex"}
+      flexDirection={"column"}
+      gap={"5%"}
       borderRadius={"10px"}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
     >
-      <Box>
-        <Text width="58%">NEM111</Text>
-      </Box>
-
-      {isHovering && <Hovershow />}
+      {tasklist.length > 0 &&
+        tasklist.map((el, i) => (
+          <Box display={"flex"} key={el.id} marginTop={"3%"}>
+            {" "}
+            <Text width="58%">{el.title}</Text>
+            {isHovering && <Hovershow info={el} />}
+          </Box>
+        ))}
     </Box>
   );
 };
 
 export default Addtasks;
 
-const Hovershow = () => {
+const Hovershow = ({ info }) => {
+  //console.log("info",info)
   const projectcontext = useContext(ProjectContext);
-  const { edit, setEdit,addtask,setAddtask } = projectcontext;
-  console.log(edit, setEdit,addtask,setAddtask);
-
-  const handletask=()=>{
+  const { edit, setEdit, addtask, setAddtask, id, setId, userId, setuserId,setTasklist,gettasks } =
+    projectcontext;
+ //console.log(edit, addtask, id, userId);
+ // console.log(info._id, info.userId);
+  const handletask = () => {
     setAddtask(true);
-    setEdit(false)
-  }
+    setEdit(false);
+    setId(info._id);
+    setuserId(info.userId);
+  };
 
- 
-
-  const handledit=()=>{
+  const handledit = () => {
     setAddtask(false);
-    setEdit(true)
-  }
+    setEdit(true);
+    setId(info._id);
+    setuserId(info.userId);
+  };
+
+  const handleDelete = () => {
+    axios
+      .delete(`/projects/${id}/delete`, {
+        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        console.log("response", res.data);
+        setTasklist(res.data);
+        gettasks();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <Box display={"flex"} gap="3%">
       <Button
@@ -146,6 +177,7 @@ const Hovershow = () => {
                 color: "aliceblue",
               }}
               p="2"
+              onClick={handleDelete}
             >
               Delete
             </Text>
