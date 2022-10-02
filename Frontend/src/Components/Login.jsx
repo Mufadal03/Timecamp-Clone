@@ -105,14 +105,26 @@ const LoginBox = () => {
       email: emailref.current.value,
       password: passwordref.current.value,
     };
+
+
+    axios({
+      method: "post",
+      url: "http://localhost:4000/user/login",
+      data: usercreds,
+    }).then(
+      (res) => (
+
       axios.post("/user/login",usercreds)
         .then((res) => (
       console.log(res.data),
+
         localStorage.setItem("token", res.data.token),
         setFlag(res.data.msg),
         setRouteflag(res.data.msg)
       )
-    );
+    ).catch((err)=>{
+      console.log(err)
+    })
   };
 
   
