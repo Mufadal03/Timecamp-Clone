@@ -14,7 +14,6 @@
 - React
 - Redux
 - Redux Thunks
-- API (Masai API for login and registration)
 - MongoDB
 - Chakra UI
 - Protected Routes(only accesible after login)
