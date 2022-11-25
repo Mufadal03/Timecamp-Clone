@@ -46,18 +46,18 @@ This project was built using React, Chakra UI, CSS, JavaScript.Coschedule is a g
 ### Setup
 
 
-The project repository can be found in [GitHub link](https://github.com/Mufadal03/frightened-snake-4355.git) or just clone the project using this command. 
+The project repository can be found in [GitHub link](https://github.com/Mufadal03/Timecamp-Clone.git) or just clone the project using this command. 
 
 
 ```
 Using HTTPS
-# git clone  https://github.com/Mufadal03/frightened-snake-4355.git
+# git clone https://github.com/Mufadal03/Timecamp-Clone.git
 ```
 
 + Open terminal on your workspace with
 
 ```
-cd /home/workspace/frightened-snake-4355/Frontend
+cd /home/workspace/Timecamo-Clone/Frontend
 ```
 
 
